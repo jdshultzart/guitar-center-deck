@@ -256,7 +256,7 @@ p.copy{
   .slide{padding:80px 7vw 110px}
 
   /* one-slide-at-a-time system */
-  .slide{display:none;min-height:100vh}
+  .slide{display:none;min-height:100vh;justify-content:flex-start}
   .slide.active{display:flex}
 
   .mobile-nav{
@@ -710,7 +710,12 @@ function show(i){
   counter.textContent=(idx+1)+' / '+total;
   prevBtn.disabled=idx===0;
   nextBtn.disabled=idx===total-1;
-  window.scrollTo(0,0);
+  // reset scroll to top reliably across mobile browsers
+  requestAnimationFrame(()=>{
+    window.scrollTo(0,0);
+    document.documentElement.scrollTop=0;
+    document.body.scrollTop=0;
+  });
 }
 prevBtn.addEventListener('click',()=>show(idx-1));
 nextBtn.addEventListener('click',()=>show(idx+1));
