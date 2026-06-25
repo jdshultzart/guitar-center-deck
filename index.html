@@ -155,6 +155,10 @@ p.copy{
 .imgph.filled{background:#0a0a0a}
 .imgph.filled::before,.imgph.filled::after{display:none}
 .imgph.filled .tag{background:rgba(10,10,10,.82)}
+/* photos shown in full (object-fit:contain) on a clean dark backdrop */
+.imgph.filled-photo{background:#0d0d0d}
+.imgph.filled-photo::before,.imgph.filled-photo::after{display:none}
+.imgph.filled-photo .tag{background:rgba(10,10,10,.82);z-index:3}
 
 /* ---------- LAYOUT HELPERS ---------- */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
@@ -336,9 +340,9 @@ p.copy{
     <div class="card"><div class="big">3</div><div class="lbl">Locations Live</div><div class="desc">Westlake Village artwork integrated into the store environment.</div></div>
   </div>
   <div class="grid-imgs three" style="margin-top:24px">
-    <div class="imgph" style="min-height:200px"><span class="tag">Photo</span><img src="images/image-1.jpg" alt="JD Shultz artwork installed at the Hollywood Guitar Center flagship" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-1.jpg</span></div>
-    <div class="imgph" style="min-height:200px"><span class="tag">GC Garage</span><img src="images/image-2.jpg" alt="JD Shultz artwork installed above the guitar wall at Northridge Guitar Center" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-2.jpg</span></div>
-    <div class="imgph" style="min-height:200px"><span class="tag">Photo</span><img src="images/image-3.jpg" alt="JD Shultz artwork at the Westlake Village Guitar Center" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-3.jpg</span></div>
+    <div class="imgph filled-photo" style="min-height:360px"><span class="tag">Photo</span><img src="images/image-1.jpg" alt="JD Shultz artwork installed at the Hollywood Guitar Center flagship" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:contain;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-1.jpg</span></div>
+    <div class="imgph filled-photo" style="min-height:360px"><span class="tag">GC Garage</span><img src="images/image-2.jpg" alt="JD Shultz artwork installed above the guitar wall at Northridge Guitar Center" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:contain;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-2.jpg</span></div>
+    <div class="imgph filled-photo" style="min-height:360px"><span class="tag">Photo</span><img src="images/image-3.jpg" alt="JD Shultz artwork at the Westlake Village Guitar Center" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:contain;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-3.jpg</span></div>
   </div>
 </section>
 
