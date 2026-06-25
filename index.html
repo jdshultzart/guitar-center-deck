@@ -142,7 +142,7 @@ p.copy{
   text-transform:uppercase;color:var(--grey);padding:18px 24px;max-width:80%;
 }
 .ph-fallback{
-  display:flex;align-items:center;justify-content:center;text-align:center;
+  display:none;align-items:center;justify-content:center;text-align:center;
   position:absolute;inset:0;font-family:'Oswald',sans-serif;font-size:12px;
   letter-spacing:1.5px;text-transform:none;color:var(--grey);padding:18px;
 }
@@ -337,7 +337,7 @@ p.copy{
   </div>
   <div class="grid-imgs three" style="margin-top:24px">
     <div class="imgph" style="min-height:200px"><span class="tag">Photo</span><img src="images/image-1.jpg" alt="JD Shultz artwork installed at the Hollywood Guitar Center flagship" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-1.jpg</span></div>
-    <div class="imgph" style="min-height:200px"><span class="tag">Northridge</span><img src="images/image-2.jpg" alt="JD Shultz artwork installed above the guitar wall at Northridge Guitar Center" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-2.jpg</span></div>
+    <div class="imgph" style="min-height:200px"><span class="tag">GC Garage</span><img src="images/image-2.jpg" alt="JD Shultz artwork installed above the guitar wall at Northridge Guitar Center" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-2.jpg</span></div>
     <div class="imgph" style="min-height:200px"><span class="tag">Photo</span><img src="images/image-3.jpg" alt="JD Shultz artwork at the Westlake Village Guitar Center" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-3.jpg</span></div>
   </div>
 </section>
@@ -704,24 +704,41 @@ const prevBtn=document.getElementById('prevBtn');
 const nextBtn=document.getElementById('nextBtn');
 const counter=document.getElementById('counter');
 function isMobile(){return window.matchMedia('(max-width:860px)').matches;}
-function show(i){
-  idx=Math.max(0,Math.min(total-1,i));
+function render(){
   slides.forEach((s,n)=>s.classList.toggle('active',n===idx));
   counter.textContent=(idx+1)+' / '+total;
   prevBtn.disabled=idx===0;
   nextBtn.disabled=idx===total-1;
-  // reset scroll to top reliably across mobile browsers
+}
+function go(i){
+  const next=Math.max(0,Math.min(total-1,i));
+  if(next===idx) return;           // no change -> never touch scroll
+  idx=next;
+  // reset scroll immediately (before paint) so the new slide starts at top
+  window.scrollTo(0,0);
+  document.documentElement.scrollTop=0;
+  document.body.scrollTop=0;
+  render();
+  // and again after layout settles, to catch late reflow
   requestAnimationFrame(()=>{
     window.scrollTo(0,0);
     document.documentElement.scrollTop=0;
     document.body.scrollTop=0;
   });
 }
-prevBtn.addEventListener('click',()=>show(idx-1));
-nextBtn.addEventListener('click',()=>show(idx+1));
+prevBtn.addEventListener('click',()=>go(idx-1));
+nextBtn.addEventListener('click',()=>go(idx+1));
+
+let wasMobile=null;
 function syncMode(){
-  if(isMobile()){show(idx);}
-  else{slides.forEach(s=>s.classList.remove('active'));}
+  const m=isMobile();
+  if(m){
+    // only re-render when crossing INTO mobile, not on every address-bar resize
+    if(wasMobile!==true) render();
+  }else{
+    slides.forEach(s=>s.classList.remove('active'));
+  }
+  wasMobile=m;
 }
 window.addEventListener('resize',syncMode);
 syncMode();
