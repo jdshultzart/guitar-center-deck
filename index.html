@@ -214,6 +214,10 @@ p.copy{
 
 /* full-width row of 4 photos (slide 5) */
 .photo-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:100%}
+
+/* trio: horizontal | vertical | horizontal (slide 5) */
+.photo-trio{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;width:100%;align-items:center}
+.trio-side{display:flex;flex-direction:column;justify-content:center;height:100%}
 .prod-cell{display:flex;flex-direction:column;gap:8px}
 .prod-cell .imgph{min-height:150px}
 .prod-cell .cap{
@@ -234,6 +238,7 @@ p.copy{
   .quad-grid.tight{gap:6px}
   .quad-grid.cap{max-width:none;margin-left:0}
   .photo-row{grid-template-columns:1fr 1fr;gap:8px}
+  .photo-trio{grid-template-columns:1fr;gap:12px}
 }
 
 /* benefit pills */
@@ -391,11 +396,14 @@ p.copy{
     <div class="feat">Seasonal creative refreshes</div>
     <div class="feat">Limited-edition launch displays</div>
   </div>
-  <div class="photo-row" style="margin-top:34px">
-    <div class="imgph filled" style="aspect-ratio:1200/1400;min-height:0"><img src="images/image-5.jpg" alt="JD Shultz store transformation" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-5.jpg</span></div>
+  <div class="photo-trio" style="margin-top:34px">
+    <div class="trio-side">
+      <div class="imgph filled" style="aspect-ratio:3/2;min-height:0"><img src="images/image-5.jpg" alt="JD Shultz store transformation" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-5.jpg</span></div>
+    </div>
     <div class="imgph filled" style="aspect-ratio:1200/1400;min-height:0"><img src="images/image-5b.jpg" alt="JD Shultz store transformation" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-5b.jpg</span></div>
-    <div class="imgph filled" style="aspect-ratio:1200/1400;min-height:0"><img src="images/image-5c.jpg" alt="JD Shultz store transformation" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-5c.jpg</span></div>
-    <div class="imgph filled" style="aspect-ratio:1200/1400;min-height:0"><img src="images/image-5d.jpg" alt="JD Shultz store transformation" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-5d.jpg</span></div>
+    <div class="trio-side">
+      <div class="imgph filled" style="aspect-ratio:3/2;min-height:0"><img src="images/image-5c.jpg" alt="JD Shultz store transformation" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-5c.jpg</span></div>
+    </div>
   </div>
 </section>
 
