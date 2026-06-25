@@ -205,6 +205,10 @@ p.copy{
 
 /* product gallery (4x2) */
 .prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:8px}
+
+/* 2x2 photo grid (slide 4) */
+.quad-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;width:100%}
+.quad-grid.tight{gap:6px}
 .prod-cell{display:flex;flex-direction:column;gap:8px}
 .prod-cell .imgph{min-height:150px}
 .prod-cell .cap{
@@ -221,6 +225,8 @@ p.copy{
 }
 @media(max-width:860px){
   .prod-grid{grid-template-columns:repeat(2,1fr);gap:14px}
+  .quad-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .quad-grid.tight{gap:6px}
 }
 
 /* benefit pills */
@@ -340,9 +346,9 @@ p.copy{
     <div class="card"><div class="big">3</div><div class="lbl">Locations Live</div><div class="desc">Westlake Village artwork integrated into the store environment.</div></div>
   </div>
   <div class="grid-imgs three" style="margin-top:24px">
-    <div class="imgph filled" style="aspect-ratio:1200/1400;min-height:0"><span class="tag">Photo</span><img src="images/image-1.jpg" alt="JD Shultz artwork installed at the Hollywood Guitar Center flagship" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-1.jpg</span></div>
-    <div class="imgph filled" style="aspect-ratio:1200/1400;min-height:0"><span class="tag">GC Garage</span><img src="images/image-2.jpg" alt="JD Shultz artwork installed above the guitar wall at Northridge Guitar Center" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-2.jpg</span></div>
-    <div class="imgph filled" style="aspect-ratio:1200/1400;min-height:0"><span class="tag">Photo</span><img src="images/image-3.jpg" alt="JD Shultz artwork at the Westlake Village Guitar Center" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-3.jpg</span></div>
+    <div class="imgph filled" style="aspect-ratio:1200/1400;min-height:0"><img src="images/image-1.jpg" alt="JD Shultz artwork installed at the Hollywood Guitar Center flagship" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-1.jpg</span></div>
+    <div class="imgph filled" style="aspect-ratio:1200/1400;min-height:0"><img src="images/image-2.jpg" alt="JD Shultz artwork installed above the guitar wall at Northridge Guitar Center" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-2.jpg</span></div>
+    <div class="imgph filled" style="aspect-ratio:1200/1400;min-height:0"><img src="images/image-3.jpg" alt="JD Shultz artwork at the Westlake Village Guitar Center" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-3.jpg</span></div>
   </div>
 </section>
 
@@ -357,7 +363,7 @@ p.copy{
       <p class="copy">Guitar Center has always been more than a store. It is where musicians begin, grow, dream, and create.</p>
       <p class="copy" style="margin-top:16px">The JD Shultz Art Experience elevates locations into immersive cultural destinations through large-scale artwork, vinyl wall wraps, wrapped instruments, branded merchandise, and music-inspired visual storytelling.</p>
     </div>
-    <div class="imgph" style="min-height:380px"><span class="tag">Concept</span><img src="images/image-4.jpg" alt="Before and after concept of a Guitar Center wall transformed with art" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-4.jpg</span></div>
+    <div class="imgph filled" style="min-height:380px"><img src="images/image-4.jpg" alt="JD Shultz artwork transforming a Guitar Center space" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-4.jpg</span></div>
   </div>
 </section>
 
@@ -380,7 +386,12 @@ p.copy{
       <div class="feat">Seasonal creative refreshes</div>
       <div class="feat">Limited-edition launch displays</div>
     </div>
-    <div class="imgph" style="min-height:360px"><span class="tag">Mockup</span><img src="images/image-5.jpg" alt="Mockup of a wrapped wall, wrapped guitar, and product display" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-5.jpg</span></div>
+    <div class="quad-grid tight">
+      <div class="imgph filled" style="aspect-ratio:1200/1400;min-height:0"><img src="images/image-5.jpg" alt="JD Shultz store transformation" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-5.jpg</span></div>
+      <div class="imgph filled" style="aspect-ratio:1200/1400;min-height:0"><img src="images/image-5b.jpg" alt="JD Shultz store transformation" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-5b.jpg</span></div>
+      <div class="imgph filled" style="aspect-ratio:1200/1400;min-height:0"><img src="images/image-5c.jpg" alt="JD Shultz store transformation" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-5c.jpg</span></div>
+      <div class="imgph filled" style="aspect-ratio:1200/1400;min-height:0"><img src="images/image-5d.jpg" alt="JD Shultz store transformation" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-5d.jpg</span></div>
+    </div>
   </div>
 </section>
 
@@ -403,7 +414,7 @@ p.copy{
         <div class="feat">A reason to come in, not just buy online</div>
       </div>
     </div>
-    <div class="imgph" style="min-height:380px"><span class="tag">Photo</span><img src="images/image-6.jpg" alt="Customers in-store with JD Shultz artwork" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-6.jpg</span></div>
+    <div class="imgph" style="min-height:380px"><img src="images/image-6.jpg" alt="Customers in-store with JD Shultz artwork" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-6.jpg</span></div>
   </div>
 </section>
 
@@ -425,7 +436,7 @@ p.copy{
       <div class="feat">Event spaces</div>
       <div class="feat">Artist feature walls</div>
     </div>
-    <div class="imgph" style="min-height:320px"><span class="tag">Mockup</span><img src="images/image-7.jpg" alt="Large-format vinyl wall wrap mockup" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-7.jpg</span></div>
+    <div class="imgph" style="min-height:320px"><img src="images/image-7.jpg" alt="Large-format vinyl wall wrap mockup" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-7.jpg</span></div>
   </div>
 </section>
 
@@ -433,7 +444,7 @@ p.copy{
 <section class="slide" data-title="Wrapped Instruments">
   <div class="chrome"><span>Art That Lives On The Instrument</span><span class="num">08 / 18</span></div>
   <div class="split">
-    <div class="imgph" style="min-height:380px"><span class="tag">Photo</span><img src="images/image-8.jpg" alt="Close-up of an art-wrapped guitar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-8.jpg</span></div>
+    <div class="imgph" style="min-height:380px"><img src="images/image-8.jpg" alt="Close-up of an art-wrapped guitar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-8.jpg</span></div>
     <div>
       <div class="eyebrow">Wrapped Instruments & Accessories</div>
       <h2 class="heading">Art That Lives<br>On The<br>Instrument</h2>
@@ -461,14 +472,14 @@ p.copy{
   <div class="rule"></div>
   <p class="copy" style="margin-bottom:6px;max-width:820px">Beyond store design, the partnership expands into a revenue-generating product line: JD's original music-inspired artwork applied across merchandise and wrapped instruments, built for in-store and online sales.</p>
   <div class="prod-grid">
-    <div class="prod-cell"><div class="imgph"><span class="tag">Product</span><img src="images/image-9.jpg" alt="Wrapped electric guitar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-9.jpg</span></div><div class="cap">Wrapped Electric Guitar</div></div>
-    <div class="prod-cell"><div class="imgph"><span class="tag">Product</span><img src="images/image-10.jpg" alt="Art-wrapped guitar case" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-10.jpg</span></div><div class="cap">Art-Wrapped Case</div></div>
-    <div class="prod-cell"><div class="imgph"><span class="tag">Product</span><img src="images/image-11.jpg" alt="JD Shultz guitar strap" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-11.jpg</span></div><div class="cap">Guitar Strap</div></div>
-    <div class="prod-cell"><div class="imgph"><span class="tag">Product</span><img src="images/image-12.jpg" alt="JD Shultz t-shirt" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-12.jpg</span></div><div class="cap">T-Shirt</div></div>
-    <div class="prod-cell"><div class="imgph"><span class="tag">Product</span><img src="images/image-13.jpg" alt="JD Shultz hoodie" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-13.jpg</span></div><div class="cap">Hoodie</div></div>
-    <div class="prod-cell"><div class="imgph"><span class="tag">Product</span><img src="images/image-14.jpg" alt="JD Shultz coffee mug" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-14.jpg</span></div><div class="cap">Coffee Mug</div></div>
-    <div class="prod-cell"><div class="imgph"><span class="tag">Product</span><img src="images/image-15.jpg" alt="JD Shultz canvas print" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-15.jpg</span></div><div class="cap">Canvas Print</div></div>
-    <div class="prod-cell"><div class="imgph"><span class="tag">Product</span><img src="images/image-16.jpg" alt="JD Shultz pick tin and picks" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-16.jpg</span></div><div class="cap">Pick Tin & Picks</div></div>
+    <div class="prod-cell"><div class="imgph"><img src="images/image-9.jpg" alt="Wrapped electric guitar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-9.jpg</span></div><div class="cap">Wrapped Electric Guitar</div></div>
+    <div class="prod-cell"><div class="imgph"><img src="images/image-10.jpg" alt="Art-wrapped guitar case" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-10.jpg</span></div><div class="cap">Art-Wrapped Case</div></div>
+    <div class="prod-cell"><div class="imgph"><img src="images/image-11.jpg" alt="JD Shultz guitar strap" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-11.jpg</span></div><div class="cap">Guitar Strap</div></div>
+    <div class="prod-cell"><div class="imgph"><img src="images/image-12.jpg" alt="JD Shultz t-shirt" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-12.jpg</span></div><div class="cap">T-Shirt</div></div>
+    <div class="prod-cell"><div class="imgph"><img src="images/image-13.jpg" alt="JD Shultz hoodie" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-13.jpg</span></div><div class="cap">Hoodie</div></div>
+    <div class="prod-cell"><div class="imgph"><img src="images/image-14.jpg" alt="JD Shultz coffee mug" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-14.jpg</span></div><div class="cap">Coffee Mug</div></div>
+    <div class="prod-cell"><div class="imgph"><img src="images/image-15.jpg" alt="JD Shultz canvas print" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-15.jpg</span></div><div class="cap">Canvas Print</div></div>
+    <div class="prod-cell"><div class="imgph"><img src="images/image-16.jpg" alt="JD Shultz pick tin and picks" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-16.jpg</span></div><div class="cap">Pick Tin & Picks</div></div>
   </div>
   <div class="prod-cats">
     <span class="pill">Straps</span><span class="pill">Tees</span><span class="pill">Hoodies</span>
@@ -499,7 +510,7 @@ p.copy{
         <div class="feat">Store-specific collectibles</div>
       </div>
     </div>
-    <div class="imgph" style="min-height:380px"><span class="tag">Mockup</span><img src="images/image-17.jpg" alt="Product shelf or online store mockup" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-17.jpg</span></div>
+    <div class="imgph" style="min-height:380px"><img src="images/image-17.jpg" alt="Product shelf or online store mockup" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-17.jpg</span></div>
   </div>
 </section>
 
@@ -507,7 +518,7 @@ p.copy{
 <section class="slide" data-title="Marketing & Social">
   <div class="chrome"><span>Built For Shareability</span><span class="num">11 / 18</span></div>
   <div class="split">
-    <div class="imgph" style="min-height:400px"><span class="tag">Mockup</span><img src="images/image-18.jpg" alt="Instagram and TikTok mockups with store art" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-18.jpg</span></div>
+    <div class="imgph" style="min-height:400px"><img src="images/image-18.jpg" alt="Instagram and TikTok mockups with store art" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-18.jpg</span></div>
     <div>
       <div class="eyebrow">Marketing & Social Media Potential</div>
       <h2 class="heading">Built For<br>Shareability</h2>
@@ -545,7 +556,7 @@ p.copy{
       <div class="feat">Charity auctions</div>
       <div class="feat">Limited-edition signings</div>
     </div>
-    <div class="imgph" style="min-height:340px"><span class="tag">Photo</span><img src="images/image-19.jpg" alt="In-store event with JD Shultz artwork" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-19.jpg</span></div>
+    <div class="imgph" style="min-height:340px"><img src="images/image-19.jpg" alt="In-store event with JD Shultz artwork" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-19.jpg</span></div>
   </div>
 </section>
 
@@ -574,7 +585,7 @@ p.copy{
         <div class="feat">Engagement tracking</div>
       </div>
     </div>
-    <div class="imgph" style="min-height:420px"><span class="tag">Graphic</span><img src="images/image-20.jpg" alt="Pilot store rollout graphic" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-20.jpg</span></div>
+    <div class="imgph" style="min-height:420px"><img src="images/image-20.jpg" alt="Pilot store rollout graphic" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-20.jpg</span></div>
   </div>
 </section>
 
@@ -594,7 +605,7 @@ p.copy{
       <div class="feat">Wrapped instrument program</div>
       <div class="feat">Artist-driven experience zones</div>
     </div>
-    <div class="imgph" style="min-height:320px"><span class="tag">Graphic</span><img src="images/image-21.jpg" alt="Map of US Guitar Center locations" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-21.jpg</span></div>
+    <div class="imgph" style="min-height:320px"><img src="images/image-21.jpg" alt="Map of US Guitar Center locations" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-21.jpg</span></div>
   </div>
 </section>
 
@@ -602,7 +613,7 @@ p.copy{
 <section class="slide" data-title="Why JD Shultz">
   <div class="chrome"><span>The Right Artist. The Right Story.</span><span class="num">15 / 18</span></div>
   <div class="split">
-    <div class="imgph" style="min-height:430px"><span class="tag">Portrait</span><img src="images/image-22.jpg" alt="JD Shultz in-store with his artwork and guitars" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-22.jpg</span></div>
+    <div class="imgph" style="min-height:430px"><img src="images/image-22.jpg" alt="JD Shultz in-store with his artwork and guitars" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-22.jpg</span></div>
     <div>
       <div class="eyebrow">Why JD Shultz</div>
       <h2 class="heading">The Right Artist.<br>The Right Story.<br>The Right Partner.</h2>
@@ -629,7 +640,7 @@ p.copy{
   <div class="rule"></div>
   <p class="copy lede" style="max-width:820px">Create the first artist-driven visual merchandising and merchandise partnership in Guitar Center history.</p>
   <p class="copy" style="margin-top:16px;max-width:820px">A program that transforms stores nationwide through immersive artwork, vinyl wall wraps, wrapped instruments, and exclusive merchandise that celebrates music, creativity, and self-expression.</p>
-  <div class="imgph" style="min-height:240px;margin-top:30px"><span class="tag">Concept</span><img src="images/image-23.jpg" alt="Concept image of a transformed Guitar Center interior" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-23.jpg</span></div>
+  <div class="imgph" style="min-height:240px;margin-top:30px"><img src="images/image-23.jpg" alt="Concept image of a transformed Guitar Center interior" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-23.jpg</span></div>
 </section>
 
 <!-- 17 ASK -->
