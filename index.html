@@ -327,12 +327,15 @@ p.copy{
   .mobile-nav .counter{font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:2px;color:var(--grey)}
 }
 
-/* desktop progress dots */
+/* desktop progress dots - bottom center, always in view */
 .dots{
-  position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:40;
-  display:flex;flex-direction:column;gap:9px;
+  position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:40;
+  display:flex;flex-direction:row;gap:9px;
+  background:rgba(12,12,12,.7);padding:10px 16px;border-radius:30px;
+  border:1px solid var(--line);backdrop-filter:blur(6px);
+  max-width:90vw;flex-wrap:wrap;justify-content:center;
 }
-.dots a{width:8px;height:8px;border-radius:50%;background:#333;transition:.2s;display:block}
+.dots a{width:8px;height:8px;border-radius:50%;background:#444;transition:.2s;display:block}
 .dots a:hover,.dots a.on{background:var(--amp);transform:scale(1.3)}
 @media(max-width:860px){.dots{display:none}}
 /* clickable photos */
