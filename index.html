@@ -94,16 +94,24 @@ p.copy{
 
 /* ---------- COVER ---------- */
 #cover{
-  justify-content:flex-end;
+  justify-content:center;
   background:
     radial-gradient(120% 80% at 70% 10%,var(--amp-glow),transparent 55%),
     linear-gradient(180deg,#0a0a0a 0%,#111 60%,#0a0a0a 100%);
 }
+.cover-grid{
+  display:grid;grid-template-columns:1.25fr .75fr;gap:5vw;align-items:center;width:100%;
+}
+.cover-photo .imgph{
+  width:100%;aspect-ratio:4/5;min-height:0;border-radius:3px;
+  background:#0d0d0d;
+}
+.cover-photo .imgph::before,.cover-photo .imgph::after{display:none}
 #cover .kicker{
   font-family:'Oswald',sans-serif;letter-spacing:6px;font-size:13px;
   color:var(--amp);text-transform:uppercase;margin-bottom:24px;font-weight:500;
 }
-#cover h1{font-size:clamp(52px,11vw,150px)}
+#cover h1{font-size:clamp(44px,7vw,104px)}
 #cover .sub{
   font-family:'Oswald',sans-serif;font-weight:400;
   font-size:clamp(16px,2vw,24px);
@@ -115,6 +123,7 @@ p.copy{
   display:flex;flex-wrap:wrap;gap:8px 28px;align-items:baseline;
 }
 #cover .presented .name{font-family:'Anton',sans-serif;font-size:26px;letter-spacing:1px}
+#cover .presented .tagline{font-family:'Oswald',sans-serif;font-size:16px;letter-spacing:2px;color:var(--amp);text-transform:uppercase;font-weight:500}
 #cover .presented .roles{font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:2px;color:var(--grey);text-transform:uppercase}
 
 /* ---------- IMAGE PLACEHOLDER ---------- */
@@ -246,6 +255,9 @@ p.copy{
   .photo-trio .trio-img{height:auto;width:100%;max-width:420px}
   .photo-trio .trio-img img{height:auto;width:100%}
   .photo-trio .trio-img.miss{width:100%;max-width:420px;aspect-ratio:3/2}
+  .cover-grid{grid-template-columns:1fr;gap:28px}
+  .cover-photo{order:-1}
+  .cover-photo .imgph{aspect-ratio:16/10;max-height:240px}
 }
 
 /* benefit pills */
@@ -311,6 +323,29 @@ p.copy{
 .dots a{width:8px;height:8px;border-radius:50%;background:#333;transition:.2s;display:block}
 .dots a:hover,.dots a.on{background:var(--amp);transform:scale(1.3)}
 @media(max-width:860px){.dots{display:none}}
+/* clickable photos */
+.imgph img, .trio-img img{cursor:zoom-in}
+
+/* lightbox */
+.lightbox{
+  position:fixed;inset:0;z-index:100;
+  background:rgba(6,6,6,.94);
+  display:none;align-items:center;justify-content:center;
+  padding:4vw;
+}
+.lightbox.open{display:flex}
+.lightbox img{
+  max-width:94vw;max-height:90vh;
+  object-fit:contain;border-radius:3px;
+  box-shadow:0 20px 60px rgba(0,0,0,.6);
+}
+.lb-close{
+  position:absolute;top:20px;right:26px;
+  background:none;border:none;color:#f5f5f3;
+  font-size:42px;line-height:1;cursor:pointer;
+  font-family:'Inter',sans-serif;font-weight:300;
+}
+.lb-close:hover{color:var(--amp)}
 </style>
 </head>
 <body>
@@ -321,12 +356,20 @@ p.copy{
 <!-- 1 COVER -->
 <section class="slide" id="cover" data-title="Cover">
   <div class="chrome"><span>JD Shultz × Guitar Center</span><span class="num">01 / 18</span></div>
-  <div class="kicker">Nationwide Visual Merchandising · Store Design · Artist Merchandise</div>
-  <h1 class="display">The Guitar<br>Center Art<br>Experience</h1>
-  <p class="sub">Transforming Guitar Center stores into immersive art, music, and culture destinations.</p>
-  <div class="presented">
-    <span class="name">JD Shultz</span>
-    <span class="roles">Artist · Musician · Producer · Lifelong Guitar Center Customer</span>
+  <div class="cover-grid">
+    <div class="cover-text">
+      <div class="kicker">Nationwide Visual Merchandising · Store Design · Artist Merchandise</div>
+      <h1 class="display">The Guitar<br>Center Art<br>Experience</h1>
+      <p class="sub">Transforming Guitar Center stores into immersive art, music, and culture destinations.</p>
+      <div class="presented">
+        <span class="name">JD Shultz</span>
+        <span class="tagline">"The Warhol of Rock"</span>
+        <span class="roles">Artist · Musician · Producer · Lifelong Guitar Center Customer</span>
+      </div>
+    </div>
+    <div class="cover-photo">
+      <div class="imgph filled"><img src="images/jd-cover.jpg" alt="JD Shultz" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:3px"><span class="ph-fallback">jd-cover.jpg</span></div>
+    </div>
   </div>
 </section>
 
@@ -695,6 +738,12 @@ p.copy{
   </div>
 </section>
 
+<!-- lightbox overlay -->
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <button id="lbClose" class="lb-close" aria-label="Close">&times;</button>
+  <img id="lbImg" src="" alt="">
+</div>
+
 <!-- mobile nav bar -->
 <div class="mobile-nav">
   <button id="prevBtn">Prev</button>
@@ -770,6 +819,29 @@ function syncMode(){
 }
 window.addEventListener('resize',syncMode);
 syncMode();
+
+/* lightbox: click any loaded photo to view larger */
+const lb=document.getElementById('lightbox');
+const lbImg=document.getElementById('lbImg');
+const lbClose=document.getElementById('lbClose');
+function openLightbox(src,alt){
+  lbImg.src=src; lbImg.alt=alt||'';
+  lb.classList.add('open'); lb.setAttribute('aria-hidden','false');
+}
+function closeLightbox(){
+  lb.classList.remove('open'); lb.setAttribute('aria-hidden','true');
+  lbImg.src='';
+}
+document.addEventListener('click',e=>{
+  const img=e.target.closest('.imgph img, .trio-img img');
+  if(!img) return;
+  // skip if the image failed to load (placeholder showing)
+  if(!img.complete || img.naturalWidth===0 || img.style.display==='none') return;
+  openLightbox(img.currentSrc||img.src, img.alt);
+});
+lbClose.addEventListener('click',closeLightbox);
+lb.addEventListener('click',e=>{ if(e.target===lb) closeLightbox(); });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape' && lb.classList.contains('open')) closeLightbox(); });
 </script>
 </body>
 </html>
