@@ -239,6 +239,22 @@ p.copy{
 /* trio: all three SAME height, tops/bottoms aligned, widths vary by photo shape */
 .photo-trio{display:flex;justify-content:center;align-items:flex-start;gap:14px;width:100%}
 .photo-trio .trio-img{height:440px;position:relative;border-radius:2px;overflow:hidden}
+/* title beside intro paragraph to save vertical space */
+.title-row{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:4px}
+.title-row .copy{max-width:none;padding-bottom:4px}
+/* content-heavy slides: top align so nothing clips at top/bottom */
+.slide[data-title="Store Transformation"]{justify-content:flex-start}
+.slide[data-title="Store Transformation"] .heading{font-size:clamp(30px,4vw,52px)}
+/* trio sized to fit remaining space on shorter screens */
+@media(max-height:980px){
+  .photo-trio .trio-img{height:300px}
+}
+@media(max-height:860px){
+  .photo-trio .trio-img{height:240px}
+}
+@media(max-height:760px){
+  .photo-trio .trio-img{height:200px}
+}
 .photo-trio .trio-img img{height:100%;width:auto;display:block;border-radius:2px}
 .photo-trio .trio-img.miss{width:300px;background:repeating-linear-gradient(135deg,#141414 0 18px,#181818 18px 36px);border:1px solid var(--line)}
 .photo-trio .trio-img.miss::after{content:attr(data-name);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:1.5px;color:var(--grey)}
@@ -270,6 +286,7 @@ p.copy{
   .cover-grid{grid-template-columns:1fr;gap:28px}
   .cover-photo{order:-1}
   .cover-photo .imgph{aspect-ratio:16/10;max-height:240px}
+  .title-row{grid-template-columns:1fr;gap:18px;align-items:start}
 }
 
 /* benefit pills */
@@ -327,17 +344,22 @@ p.copy{
   .mobile-nav .counter{font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:2px;color:var(--grey)}
 }
 
-/* desktop progress dots - bottom center, always in view */
-.dots{
-  position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:40;
-  display:flex;flex-direction:row;gap:9px;
-  background:rgba(12,12,12,.7);padding:10px 16px;border-radius:30px;
-  border:1px solid var(--line);backdrop-filter:blur(6px);
-  max-width:90vw;flex-wrap:wrap;justify-content:center;
+/* desktop up/down nav arrows - fixed right, always in view */
+.nav-arrows{
+  position:fixed;right:24px;top:50%;transform:translateY(-50%);z-index:40;
+  display:flex;flex-direction:column;gap:12px;
 }
-.dots a{width:8px;height:8px;border-radius:50%;background:#444;transition:.2s;display:block}
-.dots a:hover,.dots a.on{background:var(--amp);transform:scale(1.3)}
-@media(max-width:860px){.dots{display:none}}
+.nav-arrow{
+  width:46px;height:46px;border-radius:50%;
+  background:rgba(12,12,12,.7);border:1px solid var(--line);
+  color:#cfcfcd;font-size:14px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  backdrop-filter:blur(6px);transition:.2s;
+}
+.nav-arrow:hover{background:var(--amp);color:#fff;border-color:var(--amp)}
+.nav-arrow:disabled{opacity:.3;cursor:default;background:rgba(12,12,12,.5)}
+.nav-arrow:disabled:hover{background:rgba(12,12,12,.5);color:#cfcfcd;border-color:var(--line)}
+@media(max-width:860px){.nav-arrows{display:none}}
 /* clickable photos */
 .imgph img, .trio-img img{cursor:zoom-in}
 
@@ -365,8 +387,11 @@ p.copy{
 </head>
 <body>
 
-<!-- desktop side dots -->
-<nav class="dots" id="dots"></nav>
+<!-- desktop up/down navigation arrows -->
+<div class="nav-arrows" id="navArrows">
+  <button class="nav-arrow" id="arrowUp" aria-label="Previous slide">&#9650;</button>
+  <button class="nav-arrow" id="arrowDown" aria-label="Next slide">&#9660;</button>
+</div>
 
 <!-- 1 COVER -->
 <section class="slide" id="cover" data-title="Cover">
@@ -448,10 +473,14 @@ p.copy{
 <section class="slide" data-title="Store Transformation">
   <div class="chrome"><span>Visual Merchandising That Feels Alive</span><span class="num">05 / 18</span></div>
   <div class="eyebrow">The Store Transformation Program</div>
-  <h2 class="heading">Visual Merchandising<br>That Feels Alive</h2>
-  <div class="rule"></div>
-  <p class="copy" style="max-width:900px">This is the full toolkit for turning a standard retail floor into a space that feels like a gallery and a music venue at once. Wraps, murals, painted instruments, and feature walls work together so every corner of the store has something worth looking at. Here's what the program can include.</p>
-  <div class="feat-grid three" style="margin-top:24px">
+  <div class="title-row">
+    <div>
+      <h2 class="heading">Visual Merchandising<br>That Feels Alive</h2>
+      <div class="rule"></div>
+    </div>
+    <p class="copy">This is the full toolkit for turning a standard retail floor into a space that feels like a gallery and a music venue at once. Wraps, murals, painted instruments, and feature walls work together so every corner of the store has something worth looking at.</p>
+  </div>
+  <div class="feat-grid three" style="margin-top:18px">
     <div class="feat">Large-format vinyl wall wraps</div>
     <div class="feat">Music-inspired murals</div>
     <div class="feat">Art-wrapped guitars and basses</div>
@@ -462,12 +491,10 @@ p.copy{
     <div class="feat">Seasonal creative refreshes</div>
     <div class="feat">Limited-edition launch displays</div>
   </div>
-  <div class="photo-trio" style="margin-top:34px">
+  <div class="photo-trio" style="margin-top:24px">
     <div class="trio-img"><img src="images/image-5.jpg" alt="JD Shultz store transformation" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','image-5.jpg')"></div>
     <div class="trio-img"><img src="images/image-5b.jpg" alt="JD Shultz store transformation" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','image-5b.jpg')"></div>
     <div class="trio-img"><img src="images/image-5c.jpg" alt="JD Shultz store transformation" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','image-5c.jpg')"></div>
-  </div>
-</section>
   </div>
 </section>
 
@@ -770,25 +797,31 @@ p.copy{
 const slides = Array.from(document.querySelectorAll('.slide'));
 const total = slides.length;
 
-/* desktop side dots */
-const dots = document.getElementById('dots');
-slides.forEach((s,i)=>{
-  const a=document.createElement('a');
-  a.href='#'; a.title=s.dataset.title||('Slide '+(i+1));
-  a.addEventListener('click',e=>{e.preventDefault();s.scrollIntoView({behavior:'smooth'});});
-  dots.appendChild(a);
+/* desktop up/down arrow navigation */
+const arrowUp = document.getElementById('arrowUp');
+const arrowDown = document.getElementById('arrowDown');
+let currentSlide = 0;
+
+function updateArrows(){
+  arrowUp.disabled = currentSlide <= 0;
+  arrowDown.disabled = currentSlide >= total-1;
+}
+arrowUp.addEventListener('click',()=>{
+  if(currentSlide>0){ currentSlide--; slides[currentSlide].scrollIntoView({behavior:'smooth'}); }
 });
-const dotEls=Array.from(dots.children);
+arrowDown.addEventListener('click',()=>{
+  if(currentSlide<total-1){ currentSlide++; slides[currentSlide].scrollIntoView({behavior:'smooth'}); }
+});
 const io=new IntersectionObserver(es=>{
   es.forEach(e=>{
     if(e.isIntersecting){
-      const i=slides.indexOf(e.target);
-      dotEls.forEach(d=>d.classList.remove('on'));
-      if(dotEls[i])dotEls[i].classList.add('on');
+      currentSlide=slides.indexOf(e.target);
+      updateArrows();
     }
   });
 },{threshold:.5});
 slides.forEach(s=>io.observe(s));
+updateArrows();
 
 /* mobile one-at-a-time */
 let idx=0;
