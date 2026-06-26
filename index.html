@@ -44,6 +44,11 @@ img{max-width:100%}
   border-bottom:1px solid var(--line);
   overflow:hidden;
 }
+/* on large screens, keep content in a centered max-width band instead of spreading edge-to-edge */
+@media(min-width:1500px){
+  .slide{padding-left:calc((100vw - 1400px) / 2);padding-right:calc((100vw - 1400px) / 2);padding-top:90px;padding-bottom:80px}
+  .chrome{left:calc((100vw - 1400px) / 2);right:calc((100vw - 1400px) / 2)}
+}
 
 /* top chrome only: slide title + roman numeral */
 .chrome{
@@ -104,11 +109,11 @@ p.copy{
     linear-gradient(180deg,#0a0a0a 0%,#111 60%,#0a0a0a 100%);
 }
 .cover-grid{
-  display:grid;grid-template-columns:1.4fr .6fr;gap:4vw;align-items:center;width:100%;
+  display:grid;grid-template-columns:1.5fr 1fr;gap:3vw;align-items:center;width:100%;
 }
-.cover-photo{display:flex;justify-content:flex-start}
+.cover-photo{display:flex;justify-content:center}
 .cover-photo .imgph{
-  width:100%;max-width:340px;aspect-ratio:4/5;min-height:0;border-radius:3px;
+  width:100%;max-width:460px;aspect-ratio:4/5;min-height:0;border-radius:3px;
   background:#0d0d0d;
 }
 .cover-photo .imgph::before,.cover-photo .imgph::after{display:none}
