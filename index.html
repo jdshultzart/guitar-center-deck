@@ -19,14 +19,16 @@
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;overflow-x:hidden;max-width:100%}
+html{scroll-behavior:smooth;overflow-x:clip;max-width:100vw;width:100%}
 body{
   background:var(--black);
   color:var(--white);
   font-family:'Inter',sans-serif;
   -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-  max-width:100%;
+  overflow-x:clip;
+  max-width:100vw;
+  width:100%;
+  position:relative;
 }
 /* prevent any single element from forcing horizontal scroll */
 .slide,.cover-grid,.split,.photo-trio,.photo-row,.quad-grid,.prod-grid,.feat-grid{max-width:100%}
