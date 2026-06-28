@@ -253,11 +253,11 @@ p.copy{
 .title-row.prod-head{align-items:start}
 .title-row.prod-head .prod-cats{margin-top:6px;align-content:flex-start}
 /* shrink the product grid (keeps true 1500:1400 ratio) so two rows fit on screen */
-.slide[data-title="The Collection"] .prod-grid{max-width:880px;gap:14px;grid-template-columns:repeat(4,1fr)}
-/* reflow columns as the window narrows: 4 -> 3 -> 2 -> 1 */
-@media(max-width:1200px){.slide[data-title="The Collection"] .prod-grid{grid-template-columns:repeat(3,1fr);max-width:680px}}
-@media(max-width:860px){.slide[data-title="The Collection"] .prod-grid{grid-template-columns:repeat(2,1fr);max-width:none}}
-@media(max-width:520px){.slide[data-title="The Collection"] .prod-grid{grid-template-columns:1fr}}
+.slide[data-title="The Collection"] .prod-grid{max-width:none;gap:14px;grid-template-columns:repeat(6,1fr)}
+/* reflow columns as the window narrows: 6 -> 4 -> 3 -> 2 */
+@media(max-width:1200px){.slide[data-title="The Collection"] .prod-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:860px){.slide[data-title="The Collection"] .prod-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:520px){.slide[data-title="The Collection"] .prod-grid{grid-template-columns:repeat(2,1fr)}}
 .slide[data-title="Already Proven"]{justify-content:flex-start}
 .slide[data-title="Already Proven"] .heading{font-size:clamp(28px,3.6vw,48px)}
 /* compact horizontal stat strip */
