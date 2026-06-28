@@ -248,14 +248,16 @@ p.copy{
 .slide[data-title="Wrapped Instruments"]{justify-content:flex-start}
 .slide[data-title="Wrapped Instruments"] .heading{font-size:clamp(32px,4.3vw,56px)}
 /* page 9 product collection */
-.slide[data-title="The Collection"]{justify-content:flex-start}
+.slide[data-title="The Collection"]{justify-content:flex-start;overflow-y:auto;min-height:100vh;height:auto}
 .slide[data-title="The Collection"] .heading{font-size:clamp(30px,4vw,52px)}
 .title-row.prod-head{align-items:start}
 .title-row.prod-head .prod-cats{margin-top:6px;align-content:flex-start}
 /* shrink the product grid (keeps true 1500:1400 ratio) so two rows fit on screen */
-.slide[data-title="The Collection"] .prod-grid{max-width:880px;gap:14px}
-@media(max-height:860px){.slide[data-title="The Collection"] .prod-grid{max-width:760px}}
-@media(max-height:760px){.slide[data-title="The Collection"] .prod-grid{max-width:660px}}
+.slide[data-title="The Collection"] .prod-grid{max-width:880px;gap:14px;grid-template-columns:repeat(4,1fr)}
+/* reflow columns as the window narrows: 4 -> 3 -> 2 -> 1 */
+@media(max-width:1200px){.slide[data-title="The Collection"] .prod-grid{grid-template-columns:repeat(3,1fr);max-width:680px}}
+@media(max-width:860px){.slide[data-title="The Collection"] .prod-grid{grid-template-columns:repeat(2,1fr);max-width:none}}
+@media(max-width:520px){.slide[data-title="The Collection"] .prod-grid{grid-template-columns:1fr}}
 .slide[data-title="Already Proven"]{justify-content:flex-start}
 .slide[data-title="Already Proven"] .heading{font-size:clamp(28px,3.6vw,48px)}
 /* compact horizontal stat strip */
@@ -622,14 +624,18 @@ p.copy{
     </div>
   </div>
   <div class="prod-grid">
-    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/image-9.jpg" alt="Wrapped electric guitar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-9.jpg</span></div></div>
-    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/image-10.jpg" alt="Art-wrapped guitar case" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-10.jpg</span></div></div>
-    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/image-11.jpg" alt="JD Shultz guitar strap" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-11.jpg</span></div></div>
-    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/image-12.jpg" alt="JD Shultz t-shirt" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-12.jpg</span></div></div>
-    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/image-13.jpg" alt="JD Shultz hoodie" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-13.jpg</span></div></div>
-    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/image-14.jpg" alt="JD Shultz coffee mug" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-14.jpg</span></div></div>
-    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/image-15.jpg" alt="JD Shultz canvas print" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-15.jpg</span></div></div>
-    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/image-16.jpg" alt="JD Shultz pick tin and picks" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-16.jpg</span></div></div>
+    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/prod-1.jpg" alt="Wrapped electric guitar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">prod-1.jpg</span></div></div>
+    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/prod-2.jpg" alt="Art-wrapped guitar case" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">prod-2.jpg</span></div></div>
+    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/prod-3.jpg" alt="JD Shultz guitar strap" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">prod-3.jpg</span></div></div>
+    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/prod-4.jpg" alt="JD Shultz t-shirt" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">prod-4.jpg</span></div></div>
+    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/prod-5.jpg" alt="JD Shultz hoodie" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">prod-5.jpg</span></div></div>
+    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/prod-6.jpg" alt="JD Shultz coffee mug" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">prod-6.jpg</span></div></div>
+    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/prod-7.jpg" alt="JD Shultz canvas print" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">prod-7.jpg</span></div></div>
+    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/prod-8.jpg" alt="JD Shultz pick tin and picks" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">prod-8.jpg</span></div></div>
+    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/prod-9.jpg" alt="JD Shultz product" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">prod-9.jpg</span></div></div>
+    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/prod-10.jpg" alt="JD Shultz product" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">prod-10.jpg</span></div></div>
+    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/prod-11.jpg" alt="JD Shultz product" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">prod-11.jpg</span></div></div>
+    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/prod-12.jpg" alt="JD Shultz product" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">prod-12.jpg</span></div></div>
   </div>
 </section>
 
