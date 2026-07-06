@@ -254,8 +254,7 @@ p.copy{
 .story-quote{margin:18px 0;padding:8px 0 8px 22px;border-left:3px solid var(--amp)}
 .story-quote .q-intro{display:block;font-size:17px;line-height:1.6;color:#d6d6d4;margin:0;font-weight:300}
 .story-quote .q-line{display:block;margin-top:12px;font-family:'Oswald',sans-serif;font-size:23px;font-weight:500;color:#f5f5f3;letter-spacing:.3px;line-height:1.3}
-.story-full{padding-top:0}
-.story-close{color:#f5f5f3;font-weight:500;border-top:1px solid var(--line);padding-top:14px;margin-top:2px;font-size:17px;line-height:1.6}
+.story-full{padding-top:0}.story-close{color:#f5f5f3;font-weight:500;border-top:1px solid var(--line);padding-top:14px;margin-top:2px;font-size:17px;line-height:1.6}
 @media(max-width:860px){
   .story-photo{float:none;width:100%;max-width:none;margin:0 0 18px}
   .story-quote .q-line{font-size:19px}
@@ -265,10 +264,17 @@ p.copy{
 .slide[data-title="Wrapped Instruments"]{justify-content:flex-start}
 .slide[data-title="Wrapped Instruments"] .heading{font-size:clamp(32px,4.3vw,56px)}
 /* page 9 product collection */
-.slide[data-title="The Collection"]{justify-content:flex-start;overflow-y:auto;min-height:100vh;height:auto}
-.slide[data-title="The Collection"] .heading{font-size:clamp(30px,4vw,52px)}
+.slide[data-title="The Collection"]{justify-content:flex-start;overflow-y:auto;min-height:100vh;height:auto}.slide[data-title="The Collection"] .heading{font-size:clamp(30px,4vw,52px)}
 .title-row.prod-head{align-items:start}
 .title-row.prod-head .prod-cats{margin-top:6px;align-content:flex-start}
+/* page 16 vision: text left, 2x3 image grid right */
+.slide[data-title="Vision 2030"]{justify-content:center}
+.vision-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;width:100%}
+.vision-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:860px){
+  .vision-row{grid-template-columns:1fr;gap:28px}
+  .vision-grid{gap:10px}
+}
 /* shrink the product grid (keeps true 1500:1400 ratio) so two rows fit on screen */
 .slide[data-title="The Collection"] .prod-grid{max-width:none;gap:14px;grid-template-columns:repeat(6,1fr)}
 /* reflow columns as the window narrows: 6 -> 4 -> 3 -> 2 */
@@ -754,7 +760,7 @@ p.copy{
   <h2 class="heading">A National<br>Creative Partnership</h2>
   <div class="rule"></div>
   <p class="copy" style="margin-bottom:24px">Once the pilot is validated, the program expands into a national rollout across select Guitar Center locations.</p>
-  <div class="split" style="align-items:start">
+  <div class="split" style="align-items:center">
     <div class="feat-grid">
       <div class="feat">Flagship store transformations</div>
       <div class="feat">Regional art walls</div>
@@ -763,7 +769,7 @@ p.copy{
       <div class="feat">Wrapped instrument program</div>
       <div class="feat">Artist-driven experience zones</div>
     </div>
-    <div class="imgph" style="min-height:320px"><img src="images/image-21.jpg" alt="Map of US Guitar Center locations" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-21.jpg</span></div>
+    <div class="imgph" style="min-height:360px"><img src="images/image-21.jpg" alt="Map of US Guitar Center locations" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-21.jpg</span></div>
   </div>
 </section>
 
@@ -793,12 +799,23 @@ p.copy{
 <!-- 16 VISION 2030 -->
 <section class="slide" data-title="Vision 2030">
   <div class="chrome"><span>The Bigger Vision</span><span class="num">16 / 18</span></div>
-  <div class="eyebrow">The Bigger Vision</div>
-  <h1 class="display" style="font-size:clamp(60px,13vw,180px);margin-bottom:6px">Vision<br>2030</h1>
-  <div class="rule"></div>
-  <p class="copy lede" style="max-width:820px">Create the first artist-driven visual merchandising and merchandise partnership in Guitar Center history.</p>
-  <p class="copy" style="margin-top:16px;max-width:820px">A program that transforms stores nationwide through immersive artwork, vinyl wall wraps, wrapped instruments, and exclusive merchandise that celebrates music, creativity, and self-expression.</p>
-  <div class="imgph" style="min-height:240px;margin-top:30px"><img src="images/image-23.jpg" alt="Concept image of a transformed Guitar Center interior" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-23.jpg</span></div>
+  <div class="vision-row">
+    <div class="vision-text">
+      <div class="eyebrow">The Bigger Vision</div>
+      <h1 class="display" style="font-size:clamp(56px,9vw,120px);margin-bottom:6px">Vision<br>2030</h1>
+      <div class="rule"></div>
+      <p class="copy lede" style="max-width:440px">Create the first artist-driven visual merchandising and merchandise partnership in Guitar Center history.</p>
+      <p class="copy" style="margin-top:14px;max-width:440px">A program that transforms stores nationwide through immersive artwork, vinyl wall wraps, wrapped instruments, and exclusive merchandise that celebrates music, creativity, and self-expression.</p>
+    </div>
+    <div class="vision-grid">
+      <div class="imgph" style="aspect-ratio:4/3;min-height:0"><img src="images/vision-1.jpg" alt="Vision concept" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">vision-1.jpg</span></div>
+      <div class="imgph" style="aspect-ratio:4/3;min-height:0"><img src="images/vision-2.jpg" alt="Vision concept" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">vision-2.jpg</span></div>
+      <div class="imgph" style="aspect-ratio:4/3;min-height:0"><img src="images/vision-3.jpg" alt="Vision concept" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">vision-3.jpg</span></div>
+      <div class="imgph" style="aspect-ratio:4/3;min-height:0"><img src="images/vision-4.jpg" alt="Vision concept" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">vision-4.jpg</span></div>
+      <div class="imgph" style="aspect-ratio:4/3;min-height:0"><img src="images/vision-5.jpg" alt="Vision concept" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">vision-5.jpg</span></div>
+      <div class="imgph" style="aspect-ratio:4/3;min-height:0"><img src="images/vision-6.jpg" alt="Vision concept" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">vision-6.jpg</span></div>
+    </div>
+  </div>
 </section>
 
 <!-- 17 ASK -->
