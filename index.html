@@ -263,6 +263,17 @@ p.copy{
 .slide[data-title="Store Transformation"] .heading{font-size:clamp(32px,4.3vw,56px)}
 .slide[data-title="Wrapped Instruments"]{justify-content:flex-start}
 .slide[data-title="Wrapped Instruments"] .heading{font-size:clamp(32px,4.3vw,56px)}
+.slide[data-title="Studio Decor"]{justify-content:flex-start}
+.slide[data-title="Studio Decor"] .heading{font-size:clamp(30px,4vw,52px)}
+.quad-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;width:100%}
+.quad-row .trio-img{position:relative;border-radius:2px;overflow:hidden;aspect-ratio:3/4}
+.quad-row .trio-img img{width:100%;height:100%;object-fit:cover;display:block}
+.quad-row .quad-cap{position:absolute;left:0;right:0;bottom:0;padding:20px 14px 10px;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#f5f5f3;background:linear-gradient(transparent,rgba(0,0,0,.75));z-index:2}
+.quad-row .trio-img.miss{background:repeating-linear-gradient(135deg,#141414 0 18px,#181818 18px 36px);border:1px solid var(--line)}
+.quad-row .trio-img.miss img{display:none}
+.quad-row .trio-img.miss .quad-cap{display:none}
+.quad-row .trio-img.miss::after{content:attr(data-name);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:1.5px;color:var(--grey)}
+@media(max-width:860px){.quad-row{grid-template-columns:1fr 1fr;gap:8px}}
 /* page 9 product collection */
 .slide[data-title="The Collection"]{justify-content:flex-start;overflow-y:auto;min-height:100vh;height:auto}.slide[data-title="The Collection"] .heading{font-size:clamp(30px,4vw,52px)}
 .title-row.prod-head{align-items:start}
@@ -270,6 +281,7 @@ p.copy{
 /* page 16 vision: text left, 2x3 image grid right */
 .slide[data-title="Vision 2030"]{justify-content:center}
 .slide[data-title="National Expansion"]{justify-content:flex-start}
+.slide[data-title="National Expansion"] .heading{font-size:clamp(30px,4vw,52px)}
 .vision-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;width:100%}
 .vision-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
 .vision-grid .imgph{border:1px solid #1e1e1e}
@@ -447,7 +459,7 @@ p.copy{
 
 <!-- 1 COVER -->
 <section class="slide" id="cover" data-title="Cover">
-  <div class="chrome"><span>JD Shultz × Guitar Center</span><span class="num">01 / 18</span></div>
+  <div class="chrome"><span>JD Shultz × Guitar Center</span><span class="num">01 / 19</span></div>
   <div class="cover-grid">
     <div class="cover-text">
       <div class="kicker">Nationwide Visual Merchandising · Store Design · Artist Merchandise</div>
@@ -467,7 +479,7 @@ p.copy{
 
 <!-- 2 STORY -->
 <section class="slide" data-title="The Story">
-  <div class="chrome"><span>From Customer To Creative Partner</span><span class="num">02 / 18</span></div>
+  <div class="chrome"><span>From Customer To Creative Partner</span><span class="num">02 / 19</span></div>
   <div class="eyebrow">The Story</div>
   <h2 class="heading">It Started With<br>One Believer</h2>
   <div class="rule"></div>
@@ -487,7 +499,7 @@ p.copy{
 
 <!-- 3 PROVEN -->
 <section class="slide" data-title="Already Proven">
-  <div class="chrome"><span>A Proven Concept, Already Live</span><span class="num">03 / 18</span></div>
+  <div class="chrome"><span>A Proven Concept, Already Live</span><span class="num">03 / 19</span></div>
   <div class="eyebrow">Already Happening</div>
   <div class="title-row">
     <div>
@@ -510,7 +522,7 @@ p.copy{
 
 <!-- 4 OPPORTUNITY -->
 <section class="slide" data-title="The Opportunity">
-  <div class="chrome"><span>Turn Stores Into Destinations</span><span class="num">04 / 18</span></div>
+  <div class="chrome"><span>Turn Stores Into Destinations</span><span class="num">04 / 19</span></div>
   <div class="split">
     <div>
       <div class="eyebrow">The Opportunity</div>
@@ -525,7 +537,7 @@ p.copy{
 
 <!-- 5 STORE TRANSFORMATION -->
 <section class="slide" data-title="Store Transformation">
-  <div class="chrome"><span>Visual Merchandising That Feels Alive</span><span class="num">05 / 18</span></div>
+  <div class="chrome"><span>Visual Merchandising That Feels Alive</span><span class="num">05 / 19</span></div>
   <div class="eyebrow">The Store Transformation Program</div>
   <div class="title-row">
     <div>
@@ -554,7 +566,7 @@ p.copy{
 
 <!-- 6 BENEFITS -->
 <section class="slide" data-title="Why It Benefits GC">
-  <div class="chrome"><span>A Stronger Customer Experience</span><span class="num">06 / 18</span></div>
+  <div class="chrome"><span>A Stronger Customer Experience</span><span class="num">06 / 19</span></div>
   <div class="split text-first">
     <div>
       <div class="eyebrow">Why This Benefits Guitar Center</div>
@@ -578,7 +590,7 @@ p.copy{
 
 <!-- 7 WALL WRAPS -->
 <section class="slide" data-title="Vinyl Wall Wraps">
-  <div class="chrome"><span>The Next Evolution: Art-Wrapped Walls</span><span class="num">07 / 18</span></div>
+  <div class="chrome"><span>The Next Evolution: Art-Wrapped Walls</span><span class="num">07 / 19</span></div>
   <div class="split text-first">
     <div>
       <div class="eyebrow">Vinyl Wall Wraps</div>
@@ -602,7 +614,7 @@ p.copy{
 
 <!-- 8 WRAPPED INSTRUMENTS -->
 <section class="slide" data-title="Wrapped Instruments">
-  <div class="chrome"><span>Art That Lives On The Instrument</span><span class="num">08 / 18</span></div>
+  <div class="chrome"><span>Art That Lives On The Instrument</span><span class="num">08 / 19</span></div>
   <div class="eyebrow">Wrapped Instruments & Accessories</div>
   <div class="title-row">
     <div>
@@ -630,7 +642,7 @@ p.copy{
 
 <!-- 9 PRODUCT GALLERY -->
 <section class="slide" data-title="The Collection">
-  <div class="chrome"><span>The JD Shultz Collection</span><span class="num">09 / 18</span></div>
+  <div class="chrome"><span>The JD Shultz Collection</span><span class="num">09 / 19</span></div>
   <div class="eyebrow">Exclusive Merchandise & Wrapped Instruments</div>
   <div class="title-row prod-head">
     <div>
@@ -665,7 +677,7 @@ p.copy{
 
 <!-- 10 HISTORY -->
 <section class="slide" data-title="The History">
-  <div class="chrome"><span>A Relationship Built Over Years</span><span class="num">10 / 18</span></div>
+  <div class="chrome"><span>A Relationship Built Over Years</span><span class="num">10 / 19</span></div>
   <div class="split text-first">
     <div>
       <div class="eyebrow">How It Started</div>
@@ -681,7 +693,7 @@ p.copy{
 
 <!-- 11 MARKETING -->
 <section class="slide" data-title="Marketing & Social">
-  <div class="chrome"><span>Built For Shareability</span><span class="num">11 / 18</span></div>
+  <div class="chrome"><span>Built For Shareability</span><span class="num">11 / 19</span></div>
   <div class="split">
     <div class="imgph" style="min-height:400px"><img src="images/image-18.jpg" alt="Instagram and TikTok mockups with store art" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-18.jpg</span></div>
     <div>
@@ -705,12 +717,12 @@ p.copy{
 
 <!-- 12 EVENTS -->
 <section class="slide" data-title="Event Opportunities">
-  <div class="chrome"><span>Bringing The Art To Life</span><span class="num">12 / 18</span></div>
+  <div class="chrome"><span>Bringing The Art To Life</span><span class="num">12 / 19</span></div>
   <div class="eyebrow">Event Opportunities</div>
   <h2 class="heading">Bringing The Art To Life</h2>
   <div class="rule"></div>
-  <p class="copy" style="max-width:880px">The art doesn't have to stay static on the wall. It can anchor live moments that pull people into the store and give them a reason to talk about it after. From live painting to wrapped-guitar reveals, every event turns the store into a destination for a night.</p>
-  <div class="split" style="margin-top:24px;align-items:start">
+  <p class="copy" style="max-width:760px">The art doesn't have to stay static on the wall. It can anchor live moments that pull people into the store and give them a reason to talk about it after. From live painting to wrapped-guitar reveals, every event turns the store into a destination for a night.</p>
+  <div class="split" style="margin-top:24px;align-items:center;grid-template-columns:1fr 1fr">
     <div class="feat-grid">
       <div class="feat">Artist meet-and-greets</div>
       <div class="feat">Live painting events</div>
@@ -722,13 +734,28 @@ p.copy{
       <div class="feat">Charity auctions</div>
       <div class="feat">Limited-edition signings</div>
     </div>
-    <div class="imgph" style="min-height:340px"><img src="images/image-19.jpg" alt="In-store event with JD Shultz artwork" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-19.jpg</span></div>
+    <div class="imgph" style="min-height:460px"><img src="images/image-19.jpg" alt="In-store event with JD Shultz artwork" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-19.jpg</span></div>
   </div>
 </section>
 
-<!-- 13 PILOT -->
+<!-- 13 PANELS & STUDIO DECOR -->
+<section class="slide" data-title="Studio Decor">
+  <div class="chrome"><span>Art For Studios And Spaces</span><span class="num">13 / 19</span></div>
+  <div class="eyebrow">Panels & Music Studio Decor</div>
+  <h2 class="heading">Art For Studios And Spaces</h2>
+  <div class="rule"></div>
+  <p class="copy" style="max-width:1080px;margin-top:16px">Today, my artwork can be seamlessly integrated into functional products, including custom-wrapped speaker cabinets and acoustical recording studio sound panels that provide professional sound absorption while transforming studios into immersive works of art. Instead of hiding soundproofing materials behind plain fabric, every surface becomes an opportunity for creativity and inspiration. It's where music, technology, design, and fine art come together, proving that the future isn't coming; it's already here.</p>
+  <div class="quad-row" style="margin-top:26px">
+    <div class="trio-img"><img src="images/studio-1.jpg" alt="Custom-wrapped speaker cabinet" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','studio-1.jpg')"><span class="quad-cap">Wrapped speaker cabinets</span></div>
+    <div class="trio-img"><img src="images/studio-2.jpg" alt="Acoustic sound-absorption panel" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','studio-2.jpg')"><span class="quad-cap">Acoustic sound panels</span></div>
+    <div class="trio-img"><img src="images/studio-3.jpg" alt="Studio feature wall" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','studio-3.jpg')"><span class="quad-cap">Studio feature walls</span></div>
+    <div class="trio-img"><img src="images/studio-4.jpg" alt="Wrapped gear" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','studio-4.jpg')"><span class="quad-cap">Wrapped gear & cases</span></div>
+  </div>
+</section>
+
+<!-- 14 PILOT -->
 <section class="slide" data-title="Pilot Program">
-  <div class="chrome"><span>Start With A Scalable Pilot</span><span class="num">13 / 18</span></div>
+  <div class="chrome"><span>Start With A Scalable Pilot</span><span class="num">14 / 19</span></div>
   <div class="split text-first">
     <div>
       <div class="eyebrow">Pilot Program Proposal</div>
@@ -758,7 +785,7 @@ p.copy{
 
 <!-- 14 NATIONAL -->
 <section class="slide" data-title="National Expansion">
-  <div class="chrome"><span>A National Creative Partnership</span><span class="num">14 / 18</span></div>
+  <div class="chrome"><span>A National Creative Partnership</span><span class="num">15 / 19</span></div>
   <div class="eyebrow">National Expansion Vision</div>
   <h2 class="heading">A National<br>Creative Partnership</h2>
   <div class="rule"></div>
@@ -772,13 +799,13 @@ p.copy{
       <div class="feat">Wrapped instrument program</div>
       <div class="feat">Artist-driven experience zones</div>
     </div>
-    <div class="imgph filled" style="aspect-ratio:1/1;min-height:0;max-width:480px;max-height:480px;margin:0 auto"><img src="images/image-21.jpg" alt="Before and after: Guitar Center Hollywood exterior wall with JD Shultz rock legends mural" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-21.jpg</span></div>
+    <div class="imgph filled" style="aspect-ratio:1/1;min-height:0;max-width:520px;max-height:520px;margin:0 auto"><img src="images/image-21.jpg" alt="Before and after: Guitar Center Hollywood exterior wall with JD Shultz rock legends mural" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-21.jpg</span></div>
   </div>
 </section>
 
 <!-- 15 WHY JD -->
 <section class="slide" data-title="Why JD Shultz">
-  <div class="chrome"><span>The Right Artist. The Right Story.</span><span class="num">15 / 18</span></div>
+  <div class="chrome"><span>The Right Artist. The Right Story.</span><span class="num">16 / 19</span></div>
   <div class="split">
     <div class="imgph" style="min-height:430px"><img src="images/image-22.jpg" alt="JD Shultz in-store with his artwork and guitars" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-22.jpg</span></div>
     <div>
@@ -801,7 +828,7 @@ p.copy{
 
 <!-- 16 VISION 2030 -->
 <section class="slide" data-title="Vision 2030">
-  <div class="chrome"><span>The Bigger Vision</span><span class="num">16 / 18</span></div>
+  <div class="chrome"><span>The Bigger Vision</span><span class="num">17 / 19</span></div>
   <div class="vision-row">
     <div class="vision-text">
       <div class="eyebrow">The Bigger Vision</div>
@@ -823,28 +850,33 @@ p.copy{
 
 <!-- 17 ASK -->
 <section class="slide" data-title="Partnership Ask">
-  <div class="chrome"><span>Proposed Next Step</span><span class="num">17 / 18</span></div>
+  <div class="chrome"><span>Proposed Next Step</span><span class="num">18 / 19</span></div>
   <div class="eyebrow">Partnership Ask</div>
   <h2 class="heading">Proposed Next Step</h2>
   <div class="rule"></div>
-  <div class="ask-box">
-    <p class="copy lede" style="margin:0">JD Shultz is seeking a conversation with Guitar Center corporate leadership to explore an official creative partnership: a pilot program bringing together store design, customer experience, wrapped instruments, exclusive merchandise, and national brand storytelling.</p>
-  </div>
-  <p class="section-tag" style="margin-top:30px">Suggested next steps</p>
-  <div class="steps">
-    <div class="step"><span class="n">01</span> Review current store installations</div>
-    <div class="step"><span class="n">02</span> Identify pilot locations</div>
-    <div class="step"><span class="n">03</span> Select wall wrap opportunities</div>
-    <div class="step"><span class="n">04</span> Develop product merchandise samples</div>
-    <div class="step"><span class="n">05</span> Create wrapped guitar prototypes</div>
-    <div class="step"><span class="n">06</span> Build launch timeline</div>
-    <div class="step"><span class="n">07</span> Explore licensing or revenue-share model</div>
+  <div class="split" style="margin-top:22px;align-items:start;grid-template-columns:1.1fr 0.9fr">
+    <div>
+      <div class="ask-box">
+        <p class="copy lede" style="margin:0">JD Shultz is seeking a conversation with Guitar Center corporate leadership to explore an official creative partnership: a pilot program bringing together store design, customer experience, wrapped instruments, exclusive merchandise, and national brand storytelling.</p>
+      </div>
+      <p class="section-tag" style="margin-top:26px">Suggested next steps</p>
+      <div class="steps">
+        <div class="step"><span class="n">01</span> Review current store installations</div>
+        <div class="step"><span class="n">02</span> Identify pilot locations</div>
+        <div class="step"><span class="n">03</span> Select wall wrap opportunities</div>
+        <div class="step"><span class="n">04</span> Develop product merchandise samples</div>
+        <div class="step"><span class="n">05</span> Create wrapped guitar prototypes</div>
+        <div class="step"><span class="n">06</span> Build launch timeline</div>
+        <div class="step"><span class="n">07</span> Explore licensing or revenue-share model</div>
+      </div>
+    </div>
+    <div class="imgph" style="min-height:520px"><img src="images/image-ask.jpg" alt="JD Shultz artwork in Guitar Center" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-ask.jpg</span></div>
   </div>
 </section>
 
 <!-- 18 CLOSING -->
 <section class="slide" data-title="Closing">
-  <div class="chrome"><span>From 1981 To Now</span><span class="num">18 / 18</span></div>
+  <div class="chrome"><span>From 1981 To Now</span><span class="num">19 / 19</span></div>
   <div class="eyebrow">Closing</div>
   <h2 class="heading">From 1981 To Now,<br>This Has Always<br>Been About Music</h2>
   <div class="rule"></div>
@@ -869,7 +901,7 @@ p.copy{
 <!-- mobile nav bar -->
 <div class="mobile-nav">
   <button id="prevBtn">Prev</button>
-  <span class="counter" id="counter">1 / 18</span>
+  <span class="counter" id="counter">1 / 19</span>
   <button id="nextBtn">Next</button>
 </div>
 
