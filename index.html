@@ -265,15 +265,16 @@ p.copy{
 .slide[data-title="Wrapped Instruments"] .heading{font-size:clamp(32px,4.3vw,56px)}
 .slide[data-title="Studio Decor"]{justify-content:flex-start}
 .slide[data-title="Studio Decor"] .heading{font-size:clamp(30px,4vw,52px)}
-.quad-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;width:100%}
-.quad-row .trio-img{position:relative;border-radius:2px;overflow:hidden;aspect-ratio:3/4}
-.quad-row .trio-img img{width:100%;height:100%;object-fit:cover;display:block}
-.quad-row .quad-cap{position:absolute;left:0;right:0;bottom:0;padding:20px 14px 10px;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#f5f5f3;background:linear-gradient(transparent,rgba(0,0,0,.75));z-index:2}
+.quad-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;width:100%}
+/* every tile is an identical frame; images fit inside (contain) so mixed portrait/landscape shots all sit evenly with no hard cropping */
+.quad-row .trio-img{position:relative;border-radius:3px;overflow:hidden;aspect-ratio:4/5;background:#0d0d0d;border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+.quad-row .trio-img img{width:100%;height:100%;object-fit:contain;display:block}
+.quad-row .quad-cap{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 10px;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#f5f5f3;background:linear-gradient(transparent,rgba(0,0,0,.85));z-index:2;text-align:center}
 .quad-row .trio-img.miss{background:repeating-linear-gradient(135deg,#141414 0 18px,#181818 18px 36px);border:1px solid var(--line)}
 .quad-row .trio-img.miss img{display:none}
 .quad-row .trio-img.miss .quad-cap{display:none}
 .quad-row .trio-img.miss::after{content:attr(data-name);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:1.5px;color:var(--grey)}
-@media(max-width:860px){.quad-row{grid-template-columns:1fr 1fr;gap:8px}}
+@media(max-width:860px){.quad-row{grid-template-columns:1fr 1fr;gap:10px}}
 /* page 9 product collection */
 .slide[data-title="The Collection"]{justify-content:flex-start;overflow-y:auto;min-height:100vh;height:auto}.slide[data-title="The Collection"] .heading{font-size:clamp(30px,4vw,52px)}
 .title-row.prod-head{align-items:start}
@@ -296,6 +297,19 @@ p.copy{
 @media(max-width:1200px){.slide[data-title="The Collection"] .prod-grid{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:860px){.slide[data-title="The Collection"] .prod-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:520px){.slide[data-title="The Collection"] .prod-grid{grid-template-columns:repeat(2,1fr)}}
+/* uniform white frame for every product tile so borders match regardless of source image proportions */
+.slide[data-title="The Collection"] .prod-cell .imgph{
+  background:#ffffff;border:1px solid #e6e6e6;border-radius:3px;
+  aspect-ratio:1/1;min-height:0;padding:10px;overflow:hidden;
+}
+.slide[data-title="The Collection"] .prod-cell .imgph::before,
+.slide[data-title="The Collection"] .prod-cell .imgph::after{display:none}
+.slide[data-title="The Collection"] .prod-cell .imgph img{
+  position:static !important;inset:auto !important;
+  width:100% !important;height:100% !important;
+  object-fit:contain !important;border-radius:0 !important;
+}
+.slide[data-title="The Collection"] .prod-cell .ph-fallback{color:#666}
 .slide[data-title="Already Proven"]{justify-content:flex-start}
 .slide[data-title="Already Proven"] .heading{font-size:clamp(28px,3.6vw,48px)}
 /* compact horizontal stat strip */
@@ -740,16 +754,16 @@ p.copy{
 
 <!-- 13 PANELS & STUDIO DECOR -->
 <section class="slide" data-title="Studio Decor">
-  <div class="chrome"><span>Art For Studios And Spaces</span><span class="num">13 / 19</span></div>
+  <div class="chrome"><span>Art For Studios</span><span class="num">13 / 19</span></div>
   <div class="eyebrow">Panels & Music Studio Decor</div>
-  <h2 class="heading">Art For Studios And Spaces</h2>
+  <h2 class="heading">Art For Studios</h2>
   <div class="rule"></div>
   <p class="copy" style="max-width:1080px;margin-top:16px">Today, my artwork can be seamlessly integrated into functional products, including custom-wrapped speaker cabinets and acoustical recording studio sound panels that provide professional sound absorption while transforming studios into immersive works of art. Instead of hiding soundproofing materials behind plain fabric, every surface becomes an opportunity for creativity and inspiration. It's where music, technology, design, and fine art come together, proving that the future isn't coming; it's already here.</p>
   <div class="quad-row" style="margin-top:26px">
-    <div class="trio-img"><img src="images/studio-1.jpg" alt="Custom-wrapped speaker cabinet" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','studio-1.jpg')"><span class="quad-cap">Wrapped speaker cabinets</span></div>
-    <div class="trio-img"><img src="images/studio-2.jpg" alt="Acoustic sound-absorption panel" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','studio-2.jpg')"><span class="quad-cap">Acoustic sound panels</span></div>
-    <div class="trio-img"><img src="images/studio-3.jpg" alt="Studio feature wall" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','studio-3.jpg')"><span class="quad-cap">Studio feature walls</span></div>
-    <div class="trio-img"><img src="images/studio-4.jpg" alt="Wrapped gear" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','studio-4.jpg')"><span class="quad-cap">Wrapped gear & cases</span></div>
+    <div class="trio-img"><img src="images/studio-1.jpg" alt="Studio feature wall with JD Shultz art panels above the console" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','studio-1.jpg')"><span class="quad-cap">Studio feature walls</span></div>
+    <div class="trio-img"><img src="images/studio-2.jpg" alt="Graffiti-wrapped studio speaker cabinet" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','studio-2.jpg')"><span class="quad-cap">Wrapped speaker cabinets</span></div>
+    <div class="trio-img"><img src="images/studio-3.jpg" alt="Framed JD Shultz canvases mounted as acoustic panels" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','studio-3.jpg')"><span class="quad-cap">Acoustic art panels</span></div>
+    <div class="trio-img"><img src="images/studio-4.jpg" alt="Wrapped studio monitors and mixing console" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','studio-4.jpg')"><span class="quad-cap">Wrapped monitors & gear</span></div>
   </div>
 </section>
 
