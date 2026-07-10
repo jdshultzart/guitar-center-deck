@@ -363,7 +363,7 @@ p.copy{
   .cover-grid{grid-template-columns:1fr;gap:28px}
   .cover-photo{order:-1}
   .cover-photo .imgph{aspect-ratio:16/10;max-height:240px}
-  .title-row{grid-template-columns:1fr;gap:18px;align-items:start}
+  .title-row{grid-template-columns:1fr!important;gap:14px!important;align-items:start}
   .stat-strip{grid-template-columns:1fr;gap:0}
 }
 
@@ -395,7 +395,7 @@ p.copy{
 .mobile-nav{display:none}
 
 @media(max-width:860px){
-  .split,.split.text-first{grid-template-columns:1fr;gap:30px}
+  .split,.split.text-first{grid-template-columns:1fr!important;gap:30px}
   .cards{grid-template-columns:1fr;gap:14px}
   .feat-grid,.feat-grid.three{grid-template-columns:1fr}
   .grid-imgs,.grid-imgs.three{grid-template-columns:1fr}
@@ -425,6 +425,13 @@ p.copy{
   .slide[data-title="The History"] .imgph.filled{min-height:0!important;height:auto!important;aspect-ratio:auto!important}
   .slide[data-title="Vinyl Wall Wraps"] .imgph.filled img,
   .slide[data-title="The History"] .imgph.filled img{position:static!important;inset:auto!important;width:100%!important;height:auto!important;object-fit:contain!important}
+  /* mobile: never let body copy get trapped in a narrow desktop column */
+  .slide .copy{max-width:100%!important}
+  .title-row .copy{margin-top:8px}
+  /* page 18: ask box must not clip its text */
+  .slide[data-title="Partnership Ask"] .split{grid-template-columns:1fr}
+  .slide[data-title="National Expansion"] .imgph.filled{margin-top:0!important}
+  .ask-box,.slide[data-title="Partnership Ask"] .split > div:first-child{height:auto!important;max-height:none!important;overflow:visible!important}
 }
 
 /* desktop up/down nav arrows - fixed right, always in view */
@@ -740,7 +747,7 @@ p.copy{
   <div class="eyebrow">Event Opportunities</div>
   <h2 class="heading">Bringing The Art To Life</h2>
   <div class="rule"></div>
-  <p class="copy" style="max-width:calc((100% - 50px) / 2)">The art doesn't have to stay static on the wall. It can anchor live moments that pull people into the store and give them a reason to talk about it after. From live painting to wrapped-guitar reveals, every event turns the store into a destination for a night.</p>
+  <p class="copy" style="max-width:calc((100% - 50px) / 2)">The art doesn't have to live only on the walls. It can become the centerpiece for unforgettable experiences, from wrapped-guitar unveilings and exclusive artist events to special product launches, transforming the store into a destination that draws crowds, creates buzz, and gives customers something worth talking about long after they leave.</p>
   <div class="split" style="margin-top:24px;align-items:center;grid-template-columns:1fr 1fr">
     <div class="feat-grid">
       <div class="feat">Artist meet-and-greets</div>
@@ -904,7 +911,7 @@ p.copy{
   <div class="contact-row">
     <div><span class="k">Name</span>JD Shultz</div>
     <div><span class="k">Roles</span>Artist · Musician · Producer</div>
-    <div><span class="k">Phone</span>323-839-5560</div>
+    <div><span class="k">Phone</span><a href="tel:3238395560" style="color:var(--white);text-decoration:none">323-839-5560</a></div>
     <div><span class="k">Email</span>info@jdshultzart.com</div>
     <div><span class="k">Website</span>jdshultzart.com</div>
     <div><span class="k">Instagram</span>[Add Instagram]</div>
