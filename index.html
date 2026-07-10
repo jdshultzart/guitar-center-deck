@@ -431,6 +431,9 @@ p.copy{
   /* page 18: ask box must not clip its text */
   .slide[data-title="Partnership Ask"] .split{grid-template-columns:1fr}
   .slide[data-title="National Expansion"] .imgph.filled{margin-top:0!important}
+  /* page 18: fit ask image full width, no side crop */
+  .slide[data-title="Partnership Ask"] .imgph{min-height:0!important;height:auto!important;aspect-ratio:auto!important}
+  .slide[data-title="Partnership Ask"] .imgph img{position:static!important;inset:auto!important;width:100%!important;height:auto!important;object-fit:contain!important}
   .ask-box,.slide[data-title="Partnership Ask"] .split > div:first-child{height:auto!important;max-height:none!important;overflow:visible!important}
 }
 
