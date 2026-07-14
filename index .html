@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>The Guitar Center Art Experience | JD Shultz</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap');
+
+:root{
+  --black:#0a0a0a;
+  --charcoal:#161616;
+  --charcoal2:#1d1d1d;
+  --white:#f5f5f3;
+  --grey:#8c8c8c;
+  --line:#2a2a2a;
+  --amp:#ff3b1f;        /* electric vermilion accent */
+  --amp-glow:rgba(255,59,31,.16);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:clip;max-width:100vw;width:100%}
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:'Inter',sans-serif;
+  -webkit-font-smoothing:antialiased;
+  touch-action:manipulation;
+  overflow-x:clip;
+  max-width:100vw;
+  width:100%;
+  position:relative;
+}
+/* prevent any single element from forcing horizontal scroll */
+.slide,.cover-grid,.split,.photo-trio,.photo-row,.quad-grid,.prod-grid,.feat-grid{max-width:100%}
+img{max-width:100%}
+
+/* ---------- SLIDE SHELL ---------- */
+.slide{
+  position:relative;
+  min-height:100vh;
+  width:100%;
+  padding:90px 7vw 80px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  border-bottom:1px solid var(--line);
+  overflow:hidden;
+}
+/* on large screens, keep content in a centered max-width band instead of spreading edge-to-edge */
+@media(min-width:1500px){
+  .slide{padding-left:calc((100vw - 1400px) / 2);padding-right:calc((100vw - 1400px) / 2);padding-top:90px;padding-bottom:80px}
+  .chrome{left:calc((100vw - 1400px) / 2);right:calc((100vw - 1400px) / 2)}
+}
+
+/* top chrome only: slide title + roman numeral */
+.chrome{
+  position:absolute;
+  top:30px; left:7vw; right:7vw;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-family:'Oswald',sans-serif;
+  font-size:12px;
+  letter-spacing:3px;
+  color:var(--grey);
+  text-transform:uppercase;
+}
+.chrome .num{color:var(--amp);font-weight:600}
+
+h1.display{
+  font-family:'Anton',sans-serif;
+  font-weight:400;
+  line-height:.95;
+  letter-spacing:.5px;
+  text-transform:uppercase;
+}
+h2.heading{
+  font-family:'Anton',sans-serif;
+  font-weight:400;
+  font-size:clamp(34px,5.5vw,76px);
+  line-height:.98;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+}
+.eyebrow{
+  font-family:'Oswald',sans-serif;
+  font-size:14px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  color:var(--amp);
+  margin-bottom:22px;
+  font-weight:500;
+}
+p.copy{
+  font-size:clamp(16px,1.4vw,19px);
+  line-height:1.65;
+  color:#d6d6d4;
+  max-width:760px;
+  font-weight:300;
+}
+.lede{font-size:clamp(18px,1.7vw,22px);color:var(--white);font-weight:400}
+
+/* accent rule */
+.rule{width:64px;height:4px;background:var(--amp);margin:26px 0}
+
+/* ---------- COVER ---------- */
+#cover{
+  justify-content:center;
+  background:
+    radial-gradient(120% 80% at 70% 10%,var(--amp-glow),transparent 55%),
+    linear-gradient(180deg,#0a0a0a 0%,#111 60%,#0a0a0a 100%);
+}
+.cover-grid{
+  display:grid;grid-template-columns:1.5fr 1fr;gap:3vw;align-items:center;width:100%;
+}
+.cover-photo{display:flex;justify-content:center}
+.cover-photo .imgph{
+  width:100%;max-width:460px;aspect-ratio:4/5;min-height:0;border-radius:3px;
+  background:#0d0d0d;
+}
+.cover-photo .imgph::before,.cover-photo .imgph::after{display:none}
+#cover .kicker{
+  font-family:'Oswald',sans-serif;letter-spacing:6px;font-size:13px;
+  color:var(--amp);text-transform:uppercase;margin-bottom:24px;font-weight:500;
+}
+#cover h1{font-size:clamp(44px,7vw,104px)}
+#cover .sub{
+  font-family:'Oswald',sans-serif;font-weight:400;
+  font-size:clamp(16px,2vw,24px);
+  color:#cfcfcd;max-width:680px;margin-top:24px;line-height:1.4;
+  letter-spacing:.5px;
+}
+#cover .presented{
+  margin-top:46px;padding-top:26px;border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:8px 28px;align-items:baseline;
+}
+#cover .presented .name{font-family:'Anton',sans-serif;font-size:26px;letter-spacing:1px}
+#cover .presented .tagline{font-family:'Oswald',sans-serif;font-size:16px;letter-spacing:2px;color:var(--amp);text-transform:uppercase;font-weight:500}
+#cover .presented .roles{font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:2px;color:var(--grey);text-transform:uppercase}
+
+/* ---------- IMAGE PLACEHOLDER ---------- */
+.imgph{
+  position:relative;
+  width:100%;
+  background:
+    repeating-linear-gradient(135deg,#141414 0 18px,#181818 18px 36px);
+  border:1px solid var(--line);
+  border-radius:2px;
+  display:flex;align-items:center;justify-content:center;
+  min-height:240px;
+  text-align:center;
+}
+.imgph::before{
+  content:"";position:absolute;top:14px;left:14px;width:26px;height:26px;
+  border-top:2px solid var(--amp);border-left:2px solid var(--amp);
+}
+.imgph::after{
+  content:"";position:absolute;bottom:14px;right:14px;width:26px;height:26px;
+  border-bottom:2px solid var(--amp);border-right:2px solid var(--amp);
+}
+.imgph span{
+  font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:2px;
+  text-transform:uppercase;color:var(--grey);padding:18px 24px;max-width:80%;
+}
+.ph-fallback{
+  display:none;align-items:center;justify-content:center;text-align:center;
+  position:absolute;inset:0;font-family:'Oswald',sans-serif;font-size:12px;
+  letter-spacing:1.5px;text-transform:none;color:var(--grey);padding:18px;
+}
+.imgph .tag{
+  position:absolute;top:14px;right:14px;
+  font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:1px;
+  color:var(--amp);background:#0e0e0e;padding:5px 9px;border:1px solid var(--line);
+  text-transform:uppercase;z-index:2;
+}
+.imgph.filled{background:#0a0a0a}
+.imgph.filled::before,.imgph.filled::after{display:none}
+.slide[data-title="Why JD Shultz"] .imgph::before,
+.slide[data-title="Why JD Shultz"] .imgph::after,
+.slide[data-title="Partnership Ask"] .imgph::before,
+.slide[data-title="Partnership Ask"] .imgph::after,
+.slide[data-title="Event Opportunities"] .imgph::before,
+.slide[data-title="Event Opportunities"] .imgph::after{display:none}
+.imgph.filled .tag{background:rgba(10,10,10,.82)}
+/* photos shown in full (object-fit:contain) on a clean dark backdrop */
+.imgph.filled-photo{background:#0d0d0d}
+.imgph.filled-photo::before,.imgph.filled-photo::after{display:none}
+.imgph.filled-photo .tag{background:rgba(10,10,10,.82);z-index:3}
+
+/* ---------- LAYOUT HELPERS ---------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.split.text-first{grid-template-columns:1.05fr .95fr}
+.stack>*+*{margin-top:18px}
+
+/* timeline */
+.timeline{margin-top:30px;border-left:2px solid var(--line);padding-left:0}
+.tl-item{position:relative;padding:0 0 26px 34px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{
+  content:"";position:absolute;left:-7px;top:4px;width:12px;height:12px;
+  background:var(--amp);border-radius:50%;box-shadow:0 0 0 4px var(--black);
+}
+.tl-year{font-family:'Anton',sans-serif;font-size:20px;letter-spacing:1px;color:var(--white)}
+.tl-text{font-size:15px;color:var(--grey);margin-top:3px;line-height:1.5;font-weight:300}
+
+/* stat / proof cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:8px}
+.card{
+  background:var(--charcoal);border:1px solid var(--line);border-radius:3px;
+  padding:30px 26px;
+}
+.card .big{font-family:'Anton',sans-serif;font-size:clamp(38px,5vw,58px);color:var(--amp);line-height:1}
+.card .lbl{font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#cfcfcd;margin-top:10px;font-weight:400}
+.card .desc{font-size:14px;color:var(--grey);margin-top:10px;line-height:1.5;font-weight:300}
+
+/* feature/spec lists */
+.feat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 40px;margin-top:6px}
+.feat-grid.three{grid-template-columns:repeat(3,1fr)}
+.feat{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:16px;color:#d6d6d4;line-height:1.45;font-weight:300;
+  padding:10px 0;border-bottom:1px solid #1c1c1c;
+}
+.feat::before{
+  content:"";flex:0 0 8px;width:8px;height:8px;background:var(--amp);
+  margin-top:7px;transform:rotate(45deg);
+}
+
+/* image grid */
+.grid-imgs{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px}
+.grid-imgs.three{grid-template-columns:repeat(3,1fr)}
+
+/* product gallery (4x2) */
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:8px}
+
+/* 2x2 photo grid (slide 4) */
+.quad-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;width:100%;align-content:start}
+.quad-grid.tight{gap:6px}
+/* vertical 2x2 block: cap width so tall cells stay aligned with text height */
+.quad-grid.cap{max-width:380px;margin-left:auto}
+
+/* full-width row of 4 photos (slide 5) */
+.photo-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:100%}
+
+/* trio: all three SAME height, tops/bottoms aligned, widths vary by photo shape */
+.photo-trio{display:flex;justify-content:center;align-items:flex-start;gap:14px;width:100%}
+.photo-trio .trio-img{height:440px;position:relative;border-radius:2px;overflow:hidden}
+/* title beside intro paragraph to save vertical space */
+.title-row{display:grid;grid-template-columns:1.15fr 0.85fr;gap:36px;align-items:end;margin-bottom:4px}
+.title-row .copy{max-width:none;padding-bottom:4px;padding-right:6%}
+/* page 2 story: floated photo with wrapping text */
+.slide[data-title="The Story"]{justify-content:flex-start}
+.slide[data-title="The Story"] .heading{font-size:clamp(28px,3.7vw,44px)}
+.story-wrap{margin-top:12px;max-width:none;font-size:17px;line-height:1.6}
+.story-photo{float:right;width:35%;max-width:420px;margin:2px 0 18px 48px}
+.story-photo .imgph{border-radius:3px;box-shadow:0 16px 40px rgba(0,0,0,.5)}
+.story-photo figcaption{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--grey);margin-top:10px}
+.story-wrap .copy{margin:0 0 15px;max-width:none;font-size:17px;line-height:1.6}
+.story-wrap .lede{font-size:17px;color:#f5f5f3;line-height:1.6}
+.story-quote{margin:18px 0;padding:8px 0 8px 22px;border-left:3px solid var(--amp)}
+.story-quote .q-intro{display:block;font-size:17px;line-height:1.6;color:#d6d6d4;margin:0;font-weight:300}
+.story-quote .q-line{display:block;margin-top:12px;font-family:'Oswald',sans-serif;font-size:23px;font-weight:500;color:#f5f5f3;letter-spacing:.3px;line-height:1.3}
+.story-full{padding-top:0}.story-close{color:#f5f5f3;font-weight:500;border-top:1px solid var(--line);padding-top:14px;margin-top:2px;font-size:17px;line-height:1.6}
+@media(max-width:860px){
+  .story-photo{float:none;width:100%;max-width:none;margin:0 0 18px}
+  .story-quote .q-line{font-size:19px}
+}
+.slide[data-title="Store Transformation"]{justify-content:flex-start}
+.slide[data-title="Store Transformation"] .heading{font-size:clamp(32px,4.3vw,56px)}
+.slide[data-title="Wrapped Instruments"]{justify-content:flex-start}
+.slide[data-title="Wrapped Instruments"] .heading{font-size:clamp(32px,4.3vw,56px)}
+.slide[data-title="Studio Decor"]{justify-content:flex-start}
+.slide[data-title="Studio Decor"] .heading{font-size:clamp(30px,4vw,52px)}
+.quad-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;width:100%}
+/* every tile is an identical frame; images fit inside (contain) so mixed portrait/landscape shots all sit evenly with no hard cropping */
+.quad-row .trio-img{position:relative;border-radius:3px;overflow:hidden;aspect-ratio:4/5;background:#0d0d0d;border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+.quad-row .trio-img img{width:100%;height:100%;object-fit:cover;display:block}
+.quad-row .quad-cap{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 10px;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#f5f5f3;background:linear-gradient(transparent,rgba(0,0,0,.85));z-index:2;text-align:center}
+.quad-row .trio-img.miss{background:repeating-linear-gradient(135deg,#141414 0 18px,#181818 18px 36px);border:1px solid var(--line)}
+.quad-row .trio-img.miss img{display:none}
+.quad-row .trio-img.miss .quad-cap{display:none}
+.quad-row .trio-img.miss::after{content:attr(data-name);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:1.5px;color:var(--grey)}
+@media(max-width:860px){.quad-row{grid-template-columns:1fr 1fr;gap:10px}}
+/* page 9 product collection */
+.slide[data-title="The Collection"]{justify-content:flex-start;overflow-y:auto;min-height:100vh;height:auto}.slide[data-title="The Collection"] .heading{font-size:clamp(30px,4vw,52px)}
+.title-row.prod-head{align-items:start}
+.title-row.prod-head .prod-cats{margin-top:6px;align-content:flex-start}
+/* page 16 vision: text left, 2x3 image grid right */
+.slide[data-title="Vision 2030"]{justify-content:center}
+.slide[data-title="National Expansion"]{justify-content:flex-start}
+.slide[data-title="National Expansion"] .heading{font-size:clamp(30px,4vw,52px)}
+.vision-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;width:100%}
+.vision-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.vision-grid .imgph{border:1px solid #1e1e1e}
+.vision-grid .imgph::before,.vision-grid .imgph::after{display:none}
+@media(max-width:860px){
+  .vision-row{grid-template-columns:1fr;gap:28px}
+  .vision-grid{gap:6px}
+}
+/* shrink the product grid (keeps true 1500:1400 ratio) so two rows fit on screen */
+.slide[data-title="The Collection"] .prod-grid{max-width:none;gap:14px;grid-template-columns:repeat(6,1fr)}
+/* reflow columns as the window narrows: 6 -> 4 -> 3 -> 2 */
+@media(max-width:1200px){.slide[data-title="The Collection"] .prod-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:860px){.slide[data-title="The Collection"] .prod-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:520px){.slide[data-title="The Collection"] .prod-grid{grid-template-columns:repeat(2,1fr)}}
+/* uniform white frame for every product tile so borders match regardless of source image proportions */
+.slide[data-title="The Collection"] .prod-cell .imgph{
+  background:#ffffff;border:1px solid #e6e6e6;border-radius:3px;
+  aspect-ratio:1/1;min-height:0;padding:10px;overflow:hidden;
+}
+.slide[data-title="The Collection"] .prod-cell .imgph::before,
+.slide[data-title="The Collection"] .prod-cell .imgph::after{display:none}
+.slide[data-title="The Collection"] .prod-cell .imgph img{
+  position:static !important;inset:auto !important;
+  width:100% !important;height:100% !important;
+  object-fit:contain !important;border-radius:0 !important;
+}
+.slide[data-title="The Collection"] .prod-cell .ph-fallback{color:#666}
+.slide[data-title="Already Proven"]{justify-content:flex-start}
+.slide[data-title="Already Proven"] .heading{font-size:clamp(28px,3.6vw,48px)}
+/* compact horizontal stat strip */
+.stat-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:18px}
+.stat{display:flex;align-items:baseline;gap:14px;padding:14px 0;border-top:2px solid var(--line)}
+.stat-num{font-family:'Anton',sans-serif;font-size:clamp(34px,4vw,52px);color:var(--amp);line-height:1}
+.stat-lbl{font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:#cfcfcd;line-height:1.3}
+/* page 3 image row: cap height on shorter screens so it fits but stays large */
+@media(min-height:981px){.slide[data-title="Already Proven"] .grid-imgs.three .imgph{height:520px}}
+@media(max-height:980px){.slide[data-title="Already Proven"] .grid-imgs.three .imgph{height:430px}}
+@media(max-height:860px){.slide[data-title="Already Proven"] .grid-imgs.three .imgph{height:340px}}
+@media(max-height:760px){.slide[data-title="Already Proven"] .grid-imgs.three .imgph{height:300px}}
+/* trio sized to fit remaining space on shorter screens */
+@media(max-height:980px){
+  .photo-trio .trio-img{height:380px}
+}
+@media(max-height:860px){
+  .photo-trio .trio-img{height:300px}
+}
+@media(max-height:760px){
+  .photo-trio .trio-img{height:260px}
+}
+.photo-trio .trio-img img{height:100%;width:auto;display:block;border-radius:2px}
+.photo-trio .trio-img.miss{width:300px;background:repeating-linear-gradient(135deg,#141414 0 18px,#181818 18px 36px);border:1px solid var(--line)}
+.photo-trio .trio-img.miss::after{content:attr(data-name);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:1.5px;color:var(--grey)}
+.photo-trio .trio-img.miss img{display:none}
+.prod-cell{display:flex;flex-direction:column;gap:8px}
+.prod-cell .imgph{min-height:150px}
+.prod-cell .cap{
+  font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:1.5px;
+  text-transform:uppercase;color:#cfcfcd;
+}
+.prod-cats{
+  display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:26px;
+}
+.prod-cats .pill{
+  font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--grey);
+  border:1px solid var(--line);padding:7px 13px;border-radius:2px;
+}
+@media(max-width:860px){
+  .prod-grid{grid-template-columns:repeat(2,1fr);gap:14px}
+  .quad-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .quad-grid.tight{gap:6px}
+  .quad-grid.cap{max-width:none;margin-left:0}
+  .photo-row{grid-template-columns:1fr 1fr;gap:8px}
+  .photo-trio{flex-direction:column;align-items:center;gap:12px}
+  .photo-trio .trio-img{height:auto;width:100%;max-width:420px}
+  .photo-trio .trio-img img{height:auto;width:100%}
+  .photo-trio .trio-img.miss{width:100%;max-width:420px;aspect-ratio:3/2}
+  .cover-grid{grid-template-columns:1fr;gap:28px}
+  .cover-photo{order:-1}
+  .cover-photo .imgph{aspect-ratio:4/5;max-height:420px}
+  .title-row{grid-template-columns:1fr!important;gap:14px!important;align-items:start}
+  .stat-strip{grid-template-columns:1fr;gap:0}
+}
+
+/* benefit pills */
+.benefit-list{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;margin-top:10px}
+
+/* big number callout */
+.section-tag{font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:3px;color:var(--grey);text-transform:uppercase;margin-bottom:14px}
+
+/* CTA / ask */
+.ask-box{
+  background:linear-gradient(135deg,var(--charcoal) 0%,#101010 100%);
+  border:1px solid var(--line);border-left:4px solid var(--amp);
+  padding:38px 40px;border-radius:3px;margin-top:30px;
+}
+.steps{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 36px;margin-top:8px}
+.step{display:flex;gap:14px;align-items:baseline;padding:11px 0;border-bottom:1px solid #1c1c1c;font-size:16px;color:#d6d6d4;font-weight:300}
+.step .n{font-family:'Anton',sans-serif;color:var(--amp);font-size:18px;min-width:26px}
+
+/* contact */
+.contact-row{display:flex;flex-wrap:wrap;gap:10px 40px;margin-top:26px;font-family:'Oswald',sans-serif;letter-spacing:1px}
+.contact-row div{font-size:15px;color:#cfcfcd}
+.contact-row .k{color:var(--amp);font-size:11px;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:3px}
+
+/* map dots */
+.map-wrap{position:relative;margin-top:10px}
+
+/* ---------- MOBILE NAV (one slide at a time on small screens) ---------- */
+.mobile-nav{display:none}
+
+@media(max-width:860px){
+  .split,.split.text-first{grid-template-columns:1fr!important;gap:30px}
+  .cards{grid-template-columns:1fr;gap:14px}
+  .feat-grid,.feat-grid.three{grid-template-columns:1fr}
+  .grid-imgs,.grid-imgs.three{grid-template-columns:1fr}
+  .benefit-list{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .slide{padding:80px 7vw 110px}
+
+  /* one-slide-at-a-time system */
+  .slide{display:none;min-height:100vh;justify-content:flex-start}
+  .slide.active{display:flex}
+
+  .mobile-nav{
+    display:flex;position:fixed;bottom:0;left:0;right:0;z-index:50;
+    background:#0c0c0c;border-top:1px solid var(--line);
+    align-items:center;justify-content:space-between;
+    padding:14px 20px;
+  }
+  .mobile-nav button{
+    background:var(--amp);color:#fff;border:none;
+    font-family:'Oswald',sans-serif;letter-spacing:2px;text-transform:uppercase;
+    font-size:13px;padding:11px 20px;border-radius:2px;cursor:pointer;font-weight:600;
+  }
+  .mobile-nav button:disabled{background:#2a2a2a;color:#666}
+  .mobile-nav .counter{font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:2px;color:var(--grey)}
+  /* page 7: show full wrap image edge-to-edge, no side crop */
+  .slide[data-title="Vinyl Wall Wraps"] .imgph.filled,
+  .slide[data-title="The History"] .imgph.filled{min-height:0!important;height:auto!important;aspect-ratio:auto!important}
+  .slide[data-title="Vinyl Wall Wraps"] .imgph.filled img,
+  .slide[data-title="The History"] .imgph.filled img{position:static!important;inset:auto!important;width:100%!important;height:auto!important;object-fit:contain!important}
+  /* mobile: never let body copy get trapped in a narrow desktop column */
+  .slide .copy{max-width:100%!important}
+  .title-row .copy{margin-top:8px}
+  /* page 18: ask box must not clip its text */
+  .slide[data-title="Partnership Ask"] .split{grid-template-columns:1fr}
+  .slide[data-title="National Expansion"] .imgph.filled{margin-top:0!important}
+  /* page 18: fit ask image full width, no side crop */
+  .slide[data-title="Partnership Ask"] .imgph,
+  .slide[data-title="Marketing & Social"] .imgph,
+  .slide[data-title="Why JD Shultz"] .imgph,
+  .slide[data-title="Closing"] .imgph{min-height:0!important;height:auto!important;aspect-ratio:auto!important}
+  .slide[data-title="Partnership Ask"] .imgph img,
+  .slide[data-title="Marketing & Social"] .imgph img,
+  .slide[data-title="Why JD Shultz"] .imgph img,
+  .slide[data-title="Closing"] .imgph img{position:static!important;inset:auto!important;width:100%!important;height:auto!important;object-fit:contain!important}
+  .ask-box,.slide[data-title="Partnership Ask"] .split > div:first-child{height:auto!important;max-height:none!important;overflow:visible!important}
+}
+
+/* desktop up/down nav arrows - fixed right, always in view */
+.nav-arrows{
+  position:fixed;right:24px;top:50%;transform:translateY(-50%);z-index:40;
+  display:flex;flex-direction:column;gap:12px;
+}
+.nav-arrow{
+  width:46px;height:46px;border-radius:50%;
+  background:rgba(12,12,12,.7);border:1px solid var(--line);
+  color:#cfcfcd;font-size:14px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  backdrop-filter:blur(6px);transition:.2s;
+}
+.nav-arrow:hover{background:var(--amp);color:#fff;border-color:var(--amp)}
+.nav-arrow:disabled{opacity:.3;cursor:default;background:rgba(12,12,12,.5)}
+.nav-arrow:disabled:hover{background:rgba(12,12,12,.5);color:#cfcfcd;border-color:var(--line)}
+@media(max-width:860px){.nav-arrows{display:none}}
+/* clickable photos */
+.imgph img, .trio-img img{cursor:zoom-in}
+
+/* lightbox */
+.lightbox{
+  position:fixed;inset:0;z-index:100;
+  background:rgba(6,6,6,.94);
+  display:none;align-items:center;justify-content:center;
+  padding:4vw;
+}
+.lightbox.open{display:flex}
+.lightbox img{
+  max-width:94vw;max-height:90vh;
+  object-fit:contain;border-radius:3px;
+  box-shadow:0 20px 60px rgba(0,0,0,.6);
+}
+.lb-close{
+  position:absolute;top:20px;right:26px;
+  background:none;border:none;color:#f5f5f3;
+  font-size:42px;line-height:1;cursor:pointer;
+  font-family:'Inter',sans-serif;font-weight:300;
+}
+.lb-close:hover{color:var(--amp)}
+</style>
+</head>
+<body>
+
+<!-- desktop up/down navigation arrows -->
+<div class="nav-arrows" id="navArrows">
+  <button class="nav-arrow" id="arrowUp" aria-label="Previous slide">&#9650;</button>
+  <button class="nav-arrow" id="arrowDown" aria-label="Next slide">&#9660;</button>
+</div>
+
+<!-- 1 COVER -->
+<section class="slide" id="cover" data-title="Cover">
+  <div class="chrome"><span>JD Shultz × Guitar Center</span><span class="num">01 / 19</span></div>
+  <div class="cover-grid">
+    <div class="cover-text">
+      <div class="kicker">Nationwide Visual Merchandising · Store Design · Artist Merchandise</div>
+      <h1 class="display">The Guitar<br>Center Art<br>Experience</h1>
+      <p class="sub">Transforming Guitar Center stores into immersive art, music, and culture destinations.</p>
+      <div class="presented">
+        <span class="name">JD Shultz</span>
+        <span class="tagline">"The Warhol of Rock"</span>
+        <span class="roles">Artist · Musician · Producer · Lifelong Guitar Center Customer</span>
+      </div>
+    </div>
+    <div class="cover-photo">
+      <div class="imgph filled"><img src="images/jd-cover.jpg" alt="JD Shultz" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:3px"><span class="ph-fallback">jd-cover.jpg</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 STORY -->
+<section class="slide" data-title="The Story">
+  <div class="chrome"><span>From Customer To Creative Partner</span><span class="num">02 / 19</span></div>
+  <div class="eyebrow">The Story</div>
+  <h2 class="heading">It Started With<br>One Believer</h2>
+  <div class="rule"></div>
+  <div class="story-wrap">
+    <figure class="story-photo">
+      <div class="imgph filled" style="aspect-ratio:4/3;min-height:0"><img src="images/image-story.jpg" alt="JD Shultz and Dave Weiderman at Guitar Center" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-story.jpg</span></div>
+      <figcaption>JD Shultz &amp; Dave Weiderman, Guitar Center Hollywood</figcaption>
+    </figure>
+    <p class="copy lede">Nothing that has happened with my artwork at Guitar Center would have happened without Dave Weiderman.</p>
+    <p class="copy">My lifelong love affair with Guitar Center Hollywood began in 1981, when I walked into the store and purchased a custom nine-piece teal blue Gretsch drum set from Dave, who was then a 27-year-old drum salesman. That purchase became the beginning of a friendship that would span more than four decades. Dave became one of my closest friends and one of my dearest brothers.</p>
+    <blockquote class="story-quote"><span class="q-intro">Then, in 2011, on the day that Jane's Addiction was inducted into the Rock Walk, Dave asked me a simple question that changed everything:</span><span class="q-line">"Why don't you put your artwork in Guitar Center?"</span></blockquote>
+    <p class="copy story-full">I brought in a few paintings, and from that moment on, we just kept adding more art. Over the years, that grew into something none of us could have imagined.</p>
+    <p class="copy">Today, my artwork has become part of the Guitar Center Hollywood experience. And now, in 2026, I've had the privilege of decorating the entire Northridge Guitar Center as well as the Westlake Village Guitar Center, creating immersive art environments that celebrate music, creativity, cheerful colors and the culture that Guitar Center has inspired for generations.</p>
+    <p class="copy story-close">It all traces back to one person believing in me. The legendary Dave Weiderman.</p>
+  </div>
+</section>
+
+<!-- 3 PROVEN -->
+<section class="slide" data-title="Already Proven">
+  <div class="chrome"><span>A Proven Concept, Already Live</span><span class="num">03 / 19</span></div>
+  <div class="eyebrow">Already Happening</div>
+  <div class="title-row">
+    <div>
+      <h2 class="heading">A Proven Concept<br>Live In Guitar Center Stores</h2>
+      <div class="rule"></div>
+    </div>
+    <p class="copy">JD Shultz is the only artist in Guitar Center history that has a multi-location visual presence inside the stores. This is not a concept pitch. It is already installed and on the walls.</p>
+  </div>
+  <div class="stat-strip">
+    <div class="stat"><span class="stat-num">30+</span><span class="stat-lbl">Hollywood Flagship paintings</span></div>
+    <div class="stat"><span class="stat-num">25+</span><span class="stat-lbl">Northridge paintings & wrapped guitars</span></div>
+    <div class="stat"><span class="stat-num">3</span><span class="stat-lbl">Locations live including Westlake Village</span></div>
+  </div>
+  <div class="grid-imgs three" style="margin-top:20px">
+    <div class="imgph filled" style="min-height:0"><img src="images/image-1.jpg" alt="JD Shultz artwork installed at the Hollywood Guitar Center flagship" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-1.jpg</span></div>
+    <div class="imgph filled" style="min-height:0"><img src="images/image-2.jpg" alt="JD Shultz artwork installed above the guitar wall at Northridge Guitar Center" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-2.jpg</span></div>
+    <div class="imgph filled" style="min-height:0"><img src="images/image-3.jpg" alt="JD Shultz artwork at the Westlake Village Guitar Center" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-3.jpg</span></div>
+  </div>
+</section>
+
+<!-- 4 OPPORTUNITY -->
+<section class="slide" data-title="The Opportunity">
+  <div class="chrome"><span>Turn Stores Into Destinations</span><span class="num">04 / 19</span></div>
+  <div class="split">
+    <div>
+      <div class="eyebrow">The Opportunity</div>
+      <h2 class="heading">Turn Stores<br>Into<br>Destinations</h2>
+      <div class="rule"></div>
+      <p class="copy">Guitar Center has always been more than a store. It is where musicians begin, grow, dream, and create.</p>
+      <p class="copy" style="margin-top:16px">The JD Shultz Art Experience elevates locations into immersive cultural destinations through large-scale artwork, vinyl wall wraps, wrapped instruments, branded merchandise, and music-inspired visual storytelling.</p>
+    </div>
+    <div>
+      <div class="imgph filled" style="min-height:0;aspect-ratio:16/10"><img src="images/image-4.jpg" alt="JD Shultz artwork transforming a Guitar Center space" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:contain;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-4.jpg</span></div>
+      <div class="opp-trio" style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px">
+        <div class="imgph filled" style="aspect-ratio:1/1;min-height:0"><img src="images/image-4b.jpg" alt="JD Shultz artwork detail" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-4b.jpg</span></div>
+        <div class="imgph filled" style="aspect-ratio:1/1;min-height:0"><img src="images/image-4c.jpg" alt="JD Shultz artwork detail" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-4c.jpg</span></div>
+        <div class="imgph filled" style="aspect-ratio:1/1;min-height:0"><img src="images/image-4d.jpg" alt="JD Shultz artwork detail" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-4d.jpg</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 STORE TRANSFORMATION -->
+<section class="slide" data-title="Store Transformation">
+  <div class="chrome"><span>Visual Merchandising That Feels Alive</span><span class="num">05 / 19</span></div>
+  <div class="eyebrow">The Store Transformation Program</div>
+  <div class="title-row" style="grid-template-columns:1fr 1fr;gap:24px">
+    <div>
+      <h2 class="heading">Visual Merchandising<br>That Feels Alive</h2>
+      <div class="rule"></div>
+    </div>
+    <p class="copy">This is a complete environmental branding system designed to transform a traditional retail floor into an immersive destination where music, art, and culture converge. Custom wall wraps, museum-quality display cases featuring art-wrapped instruments, and signature feature walls elevate the customer experience, creating a store where every department tells a story, every corner inspires discovery, and every visit becomes memorable.</p>
+  </div>
+  <div class="feat-grid three" style="margin-top:18px">
+    <div class="feat">Large-format vinyl wall wraps</div>
+    <div class="feat">Music-inspired murals</div>
+    <div class="feat">Art-wrapped guitars and basses</div>
+    <div class="feat">Art-wrapped guitar cases</div>
+    <div class="feat">Featured artist walls</div>
+    <div class="feat">Photo-op areas for customers</div>
+    <div class="feat">Regional store installations</div>
+    <div class="feat">Seasonal creative refreshes</div>
+    <div class="feat">Limited-edition launch displays</div>
+  </div>
+  <div class="photo-trio" style="margin-top:24px">
+    <div class="trio-img"><img src="images/image-5.jpg" alt="JD Shultz store transformation" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','image-5.jpg')"></div>
+    <div class="trio-img"><img src="images/image-5b.jpg" alt="JD Shultz store transformation" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','image-5b.jpg')"></div>
+    <div class="trio-img"><img src="images/image-5c.jpg" alt="JD Shultz store transformation" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','image-5c.jpg')"></div>
+  </div>
+</section>
+
+<!-- 6 BENEFITS -->
+<section class="slide" data-title="Why It Benefits GC">
+  <div class="chrome"><span>A Stronger Customer Experience</span><span class="num">06 / 19</span></div>
+  <div class="split text-first">
+    <div>
+      <div class="eyebrow">Why This Benefits Guitar Center</div>
+      <h2 class="heading">A Stronger<br>Customer<br>Experience</h2>
+      <div class="rule"></div>
+      <p class="copy" style="margin-top:16px">This isn't art for art's sake. It gives people a reason to spend more time in the store, pull out their phones, and come back. In a world where most gear can be bought online, the in-store experience is what keeps customers, tourists and music lovers walking through the door.</p>
+      <div class="benefit-list" style="margin-top:18px">
+        <div class="feat">More visually inspiring stores</div>
+        <div class="feat">Customers stay longer</div>
+        <div class="feat">Social-worthy moments</div>
+        <div class="feat">Differentiation from traditional retail</div>
+        <div class="feat">Stronger emotional connection with musicians</div>
+        <div class="feat">Turn art and music lovers into new customers</div>
+        <div class="feat">Places customers want to visit and share</div>
+        <div class="feat">A reason to come in, not just buy online</div>
+      </div>
+    </div>
+    <div class="imgph" style="min-height:380px"><img src="images/image-6.jpg" alt="Customers in-store with JD Shultz artwork" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-6.jpg</span></div>
+  </div>
+</section>
+
+<!-- 7 WALL WRAPS -->
+<section class="slide" data-title="Vinyl Wall Wraps">
+  <div class="chrome"><span>The Next Evolution: Art-Wrapped Walls</span><span class="num">07 / 19</span></div>
+  <div class="split text-first">
+    <div>
+      <div class="eyebrow">Vinyl Wall Wraps</div>
+      <h2 class="heading">The Next Evolution:<br>Art-Wrapped Walls</h2>
+      <div class="rule"></div>
+      <p class="copy" style="max-width:480px;margin-top:16px;margin-bottom:22px">JD is expanding into state-of-the-art vinyl wall wraps that turn blank retail walls into immersive branded environments. Each wrap can be customized by store, region, campaign, season, or product launch.</p>
+      <div class="feat-grid">
+        <div class="feat">Entrance walls</div>
+        <div class="feat">Guitar rooms</div>
+        <div class="feat">Drum rooms</div>
+        <div class="feat">Recording departments</div>
+        <div class="feat">Lesson rooms</div>
+        <div class="feat">Checkout areas</div>
+        <div class="feat">Event spaces</div>
+        <div class="feat">Artist feature walls</div>
+      </div>
+    </div>
+    <div class="imgph filled" style="min-height:480px"><img src="images/image-7.jpg" alt="Large-format vinyl wall wrap mockup" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-7.jpg</span></div>
+  </div>
+</section>
+
+<!-- 8 WRAPPED INSTRUMENTS -->
+<section class="slide" data-title="Wrapped Instruments">
+  <div class="chrome"><span>Art That Lives On The Instrument</span><span class="num">08 / 19</span></div>
+  <div class="eyebrow">Wrapped Instruments & Accessories</div>
+  <div class="title-row">
+    <div>
+      <h2 class="heading">Art That Lives<br>On The Instrument</h2>
+      <div class="rule"></div>
+    </div>
+    <p class="copy">JD's paintings get applied straight onto real gear using premium vinyl and pro production methods. A guitar stops being just an instrument and becomes a one-of-a-kind piece customers want to own, photograph, and show off.</p>
+  </div>
+  <div class="feat-grid three" style="margin-top:16px">
+    <div class="feat">Electric guitars</div>
+    <div class="feat">Acoustic guitars</div>
+    <div class="feat">Bass guitars</div>
+    <div class="feat">Drum shells</div>
+    <div class="feat">Guitar cases</div>
+    <div class="feat">Pedalboards</div>
+    <div class="feat">Pickguards</div>
+    <div class="feat">Amp cabinets</div>
+  </div>
+  <div class="photo-trio" style="margin-top:22px">
+    <div class="trio-img"><img src="images/image-8.jpg" alt="Art-wrapped instrument" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','image-8.jpg')"></div>
+    <div class="trio-img"><img src="images/image-8b.jpg" alt="Art-wrapped instrument" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','image-8b.jpg')"></div>
+    <div class="trio-img"><img src="images/image-8c.jpg" alt="Art-wrapped instrument" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','image-8c.jpg')"></div>
+  </div>
+</section>
+
+<!-- 9 PRODUCT GALLERY -->
+<section class="slide" data-title="The Collection">
+  <div class="chrome"><span>The JD Shultz Collection</span><span class="num">09 / 19</span></div>
+  <div class="eyebrow">Exclusive Merchandise & Wrapped Instruments</div>
+  <div class="title-row prod-head">
+    <div>
+      <h2 class="heading">The JD Shultz Collection<br>For Guitar Center</h2>
+      <div class="rule"></div>
+      <p class="copy" style="margin-top:16px">Beyond store design, the partnership expands into a revenue-generating product line: JD's original music-inspired artwork applied across merchandise and wrapped instruments, built for in-store and online sales.</p>
+    </div>
+    <div class="prod-cats">
+      <span class="pill">Straps</span><span class="pill">Tees</span><span class="pill">Hoodies</span>
+      <span class="pill">Hats</span><span class="pill">Beanies</span><span class="pill">Mugs</span>
+      <span class="pill">Water Bottles</span><span class="pill">Posters</span><span class="pill">Canvas Prints</span>
+      <span class="pill">Picks</span><span class="pill">Stickers</span><span class="pill">Tote Bags</span>
+      <span class="pill">Journals</span><span class="pill">Belt Buckles</span><span class="pill">Wrapped Guitars</span>
+      <span class="pill">Limited Editions</span>
+    </div>
+  </div>
+  <div class="prod-grid">
+    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/prod-1.jpg" alt="Wrapped electric guitar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">prod-1.jpg</span></div></div>
+    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/prod-2.jpg" alt="Art-wrapped guitar case" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">prod-2.jpg</span></div></div>
+    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/prod-3.jpg" alt="JD Shultz guitar strap" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">prod-3.jpg</span></div></div>
+    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/prod-4.jpg" alt="JD Shultz t-shirt" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">prod-4.jpg</span></div></div>
+    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/prod-5.jpg" alt="JD Shultz hoodie" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">prod-5.jpg</span></div></div>
+    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/prod-6.jpg" alt="JD Shultz coffee mug" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">prod-6.jpg</span></div></div>
+    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/prod-7.jpg" alt="JD Shultz canvas print" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">prod-7.jpg</span></div></div>
+    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/prod-8.jpg" alt="JD Shultz pick tin and picks" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">prod-8.jpg</span></div></div>
+    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/prod-9.jpg" alt="JD Shultz product" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">prod-9.jpg</span></div></div>
+    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/prod-10.jpg" alt="JD Shultz product" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">prod-10.jpg</span></div></div>
+    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/prod-11.jpg" alt="JD Shultz product" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">prod-11.jpg</span></div></div>
+    <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/prod-12.jpg" alt="JD Shultz product" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">prod-12.jpg</span></div></div>
+  </div>
+</section>
+
+<!-- 10 HISTORY -->
+<section class="slide" data-title="The History">
+  <div class="chrome"><span>A Relationship Built Over Years</span><span class="num">10 / 19</span></div>
+  <div class="split text-first">
+    <div>
+      <div class="eyebrow">How It Started</div>
+      <h2 class="heading">A Relationship Built Over Years</h2>
+      <div class="rule"></div>
+      <p class="copy" style="margin-bottom:16px">It started in 2011. JD hung his first pieces inside Guitar Center, and the response was immediate. Customers stopped, looked, and asked about them. The art belonged there because it came from the same place the music does.</p>
+      <p class="copy" style="margin-bottom:16px">From there, the idea took on a life of its own. One store became three. A handful of paintings became dozens. What began in the RockWalk Museum evolved into immersive retail spaces with art-wrapped guitars, feature walls, and custom installations, creating memorable destinations and a vision that can scale across every Guitar Center.</p>
+      <p class="copy lede">Fifteen years later, JD is the only artist with original work installed across multiple Guitar Center locations. This partnership is the next step in a story that's already been building for years.</p>
+    </div>
+    <div class="imgph filled" style="min-height:420px"><img src="images/image-17.jpg" alt="JD Shultz artwork in Guitar Center over the years" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-17.jpg</span></div>
+  </div>
+</section>
+
+<!-- 11 MARKETING -->
+<section class="slide" data-title="Marketing & Social">
+  <div class="chrome"><span>Built For Shareability</span><span class="num">11 / 19</span></div>
+  <div class="split">
+    <div class="imgph" style="min-height:400px"><img src="images/image-18.jpg" alt="Instagram and TikTok mockups with store art" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-18.jpg</span></div>
+    <div>
+      <div class="eyebrow">Marketing & Social Media Potential</div>
+      <h2 class="heading">Built For<br>Shareability</h2>
+      <div class="rule"></div>
+      <p class="copy" style="margin-bottom:16px">The Guitar Center Art Experience gives customers something to photograph, post, and remember.</p>
+      <div class="feat-grid">
+        <div class="feat">Customer photo walls</div>
+        <div class="feat">Artist launch events</div>
+        <div class="feat">Wrapped guitar reveals</div>
+        <div class="feat">Limited-edition drops</div>
+        <div class="feat">Behind-the-scenes content</div>
+        <div class="feat">Store transformation videos</div>
+        <div class="feat">Musician collaborations</div>
+        <div class="feat">National Art Tour</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 EVENTS -->
+<section class="slide" data-title="Event Opportunities">
+  <div class="chrome"><span>Bringing The Art To Life</span><span class="num">12 / 19</span></div>
+  <div class="eyebrow">Event Opportunities</div>
+  <h2 class="heading">Bringing The Art To Life</h2>
+  <div class="rule"></div>
+  <p class="copy" style="max-width:calc((100% - 50px) / 2)">The art doesn't have to live only on the walls. It can become the centerpiece for unforgettable experiences, from wrapped-guitar unveilings and exclusive artist events to special product launches, transforming the store into a destination that draws crowds, creates buzz, and gives customers something worth talking about long after they leave.</p>
+  <div class="split" style="margin-top:24px;align-items:start;grid-template-columns:1fr 1fr">
+    <div class="feat-grid">
+      <div class="feat">Artist meet-and-greets</div>
+      <div class="feat">Live painting events</div>
+      <div class="feat">Wrapped guitar unveilings</div>
+      <div class="feat">Music and art nights</div>
+      <div class="feat">Local musician showcases</div>
+      <div class="feat">Product launch parties</div>
+      <div class="feat">VIP customer events</div>
+      <div class="feat">Charity auctions</div>
+      <div class="feat">Limited-edition signings</div>
+    </div>
+    <div style="margin-top:-170px;display:flex;justify-content:center;align-items:flex-start"><img src="images/image-19.jpg" alt="In-store event with JD Shultz artwork" style="max-width:100%;max-height:620px;width:auto;height:auto;display:block;border-radius:2px"></div>
+  </div>
+</section>
+
+<!-- 13 PANELS & STUDIO DECOR -->
+<section class="slide" data-title="Studio Decor">
+  <div class="chrome"><span>Blending Art With Studio Equipment</span><span class="num">13 / 19</span></div>
+  <div class="eyebrow">Panels & Music Studio Decor</div>
+  <h2 class="heading">Blending Art With Studio Equipment</h2>
+  <div class="rule"></div>
+  <p class="copy" style="max-width:1080px;margin-top:16px">Today, my artwork can be seamlessly integrated into functional products, including custom-wrapped speaker cabinets and acoustical recording studio sound panels that provide professional sound absorption while transforming studios into immersive works of art. Instead of hiding soundproofing materials behind plain fabric, every surface becomes an opportunity for creativity and inspiration. It's where music, technology, design, and fine art come together, proving that the future isn't coming; it's already here.</p>
+  <div class="quad-row" style="margin-top:26px">
+    <div class="trio-img"><img src="images/studio-1.jpg" alt="Speaker cabinets and console with JD Shultz artwork" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','studio-1.jpg')"><span class="quad-cap">Speaker cabinets and console</span></div>
+    <div class="trio-img"><img src="images/studio-2.jpg" alt="Studio foam panels wrapped in JD Shultz art" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','studio-2.jpg')"><span class="quad-cap">Studio foam panels</span></div>
+    <div class="trio-img"><img src="images/studio-3.jpg" alt="Acoustic panels featuring JD Shultz canvases" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','studio-3.jpg')"><span class="quad-cap">Acoustic panels</span></div>
+    <div class="trio-img"><img src="images/studio-4.jpg" alt="Studio speakers wrapped in JD Shultz art" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','studio-4.jpg')"><span class="quad-cap">Studio speakers</span></div>
+  </div>
+</section>
+
+<!-- 14 PILOT -->
+<section class="slide" data-title="Pilot Program">
+  <div class="chrome"><span>Start With A Scalable Pilot</span><span class="num">14 / 19</span></div>
+  <div class="split text-first">
+    <div>
+      <div class="eyebrow">Pilot Program Proposal</div>
+      <h2 class="heading">Start With A<br>Scalable Pilot</h2>
+      <div class="rule"></div>
+      <p class="copy" style="margin-bottom:22px">No need to commit nationwide on day one. Start with a few high-traffic LA stores, prove out the concept with real customer response, then scale from there. Low risk, fast to launch, and built to show results before the bigger rollout.</p>
+      <p class="section-tag">Potential pilot locations</p>
+      <div class="feat-grid">
+        <div class="feat">Hollywood flagship</div>
+        <div class="feat">Northridge</div>
+        <div class="feat">Westlake Village</div>
+        <div class="feat">Additional high-traffic LA store</div>
+      </div>
+      <p class="section-tag" style="margin-top:24px">Each pilot store could include</p>
+      <div class="feat-grid">
+        <div class="feat">One major wall wrap</div>
+        <div class="feat">Featured art installation</div>
+        <div class="feat">Wrapped guitar display</div>
+        <div class="feat">Merchandise test collection</div>
+        <div class="feat">Social launch campaign</div>
+        <div class="feat">Engagement tracking</div>
+      </div>
+    </div>
+    <div class="imgph filled story-photo-tall" style="aspect-ratio:1446/2048;min-height:0"><img src="images/image-20.jpg" alt="Before and after: Guitar Center entrance arch transformed with JD Shultz band mural" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-20.jpg</span></div>
+  </div>
+</section>
+
+<!-- 14 NATIONAL -->
+<section class="slide" data-title="National Expansion">
+  <div class="chrome"><span>A National Creative Partnership</span><span class="num">15 / 19</span></div>
+  <div class="eyebrow">National Expansion Vision</div>
+  <h2 class="heading">A National<br>Creative Partnership</h2>
+  <div class="rule"></div>
+  <p class="copy" style="margin-bottom:18px;max-width:calc((100% - 50px) / 2)">Once the pilot is validated, the program expands into a national rollout across select Guitar Center locations.</p>
+  <div class="split" style="align-items:start;margin-top:6px">
+    <div class="feat-grid" style="margin-top:18px">
+      <div class="feat">Flagship store transformations</div>
+      <div class="feat">Regional art walls</div>
+      <div class="feat">Seasonal campaigns</div>
+      <div class="feat">Nationwide merchandise collection</div>
+      <div class="feat">Wrapped instrument program</div>
+      <div class="feat">Artist-driven experience zones</div>
+    </div>
+    <div class="imgph filled" style="aspect-ratio:1/1;min-height:0;max-width:520px;max-height:520px;margin:-190px auto 0"><img src="images/image-21.jpg" alt="Before and after: Guitar Center Hollywood exterior wall with JD Shultz rock legends mural" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-21.jpg</span></div>
+  </div>
+</section>
+
+<!-- 15 WHY JD -->
+<section class="slide" data-title="Why JD Shultz">
+  <div class="chrome"><span>The Right Artist. The Right Story.</span><span class="num">16 / 19</span></div>
+  <div class="split">
+    <div class="imgph" style="min-height:560px"><img src="images/image-22.jpg" alt="JD Shultz in-store with his artwork and guitars" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-22.jpg</span></div>
+    <div>
+      <div class="eyebrow">Why JD Shultz</div>
+      <h2 class="heading">The Right Artist.<br>The Right Story.<br>The Right Partner.</h2>
+      <div class="rule"></div>
+      <p class="copy" style="margin-bottom:16px">JD Shultz is uniquely positioned because he is not just an artist.</p>
+      <div class="feat-grid">
+        <div class="feat">Guitar Center customer since 1981</div>
+        <div class="feat">Multi-instrumentalist</div>
+        <div class="feat">Music producer and mixer</div>
+        <div class="feat">Songwriter</div>
+        <div class="feat">Visual artist</div>
+        <div class="feat">Installed in multiple locations</div>
+      </div>
+      <p class="copy lede" style="margin-top:22px">This is not outside art placed in a music store. This is Guitar Center culture reflected back through someone who grew up inside it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 16 VISION 2030 -->
+<section class="slide" data-title="Vision 2030">
+  <div class="chrome"><span>The Bigger Vision</span><span class="num">17 / 19</span></div>
+  <div class="vision-row">
+    <div class="vision-text">
+      <div class="eyebrow">The Bigger Vision</div>
+      <h1 class="display" style="font-size:clamp(56px,9vw,120px);margin-bottom:6px">Vision<br>2030</h1>
+      <div class="rule"></div>
+      <p class="copy lede" style="max-width:500px">Create the first artist-driven visual merchandising and merchandise partnership in Guitar Center history.</p>
+      <p class="copy" style="margin-top:14px;max-width:500px">A program that transforms stores nationwide through immersive artwork, vinyl wall wraps, wrapped instruments, and exclusive merchandise that celebrates music, creativity, and self-expression.</p>
+    </div>
+    <div class="vision-grid">
+      <div class="imgph" style="aspect-ratio:4/3;min-height:0"><img src="images/vision-1.jpg" alt="Vision concept" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">vision-1.jpg</span></div>
+      <div class="imgph" style="aspect-ratio:4/3;min-height:0"><img src="images/vision-2.jpg" alt="Vision concept" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">vision-2.jpg</span></div>
+      <div class="imgph" style="aspect-ratio:4/3;min-height:0"><img src="images/vision-3.jpg" alt="Vision concept" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">vision-3.jpg</span></div>
+      <div class="imgph" style="aspect-ratio:4/3;min-height:0"><img src="images/vision-4.jpg" alt="Vision concept" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">vision-4.jpg</span></div>
+      <div class="imgph" style="aspect-ratio:4/3;min-height:0"><img src="images/vision-5.jpg" alt="Vision concept" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">vision-5.jpg</span></div>
+      <div class="imgph" style="aspect-ratio:4/3;min-height:0"><img src="images/vision-6.jpg" alt="Vision concept" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">vision-6.jpg</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 17 ASK -->
+<section class="slide" data-title="Partnership Ask">
+  <div class="chrome"><span>Proposed Next Step</span><span class="num">18 / 19</span></div>
+  <div class="eyebrow">Partnership Ask</div>
+  <h2 class="heading">Proposed Next Step</h2>
+  <div class="rule"></div>
+  <div class="split" style="margin-top:10px;align-items:start;grid-template-columns:1.1fr 0.9fr">
+    <div>
+      <div class="ask-box" style="margin-top:0">
+        <p class="copy lede" style="margin:0">JD Shultz is seeking a conversation with Guitar Center corporate leadership to explore an official creative partnership: a pilot program bringing together store design, customer experience, wrapped instruments, exclusive merchandise, and national brand storytelling.</p>
+      </div>
+      <p class="section-tag" style="margin-top:26px">Suggested next steps</p>
+      <div class="steps">
+        <div class="step"><span class="n">01</span> Review current store installations</div>
+        <div class="step"><span class="n">02</span> Identify pilot locations</div>
+        <div class="step"><span class="n">03</span> Select wall wrap opportunities</div>
+        <div class="step"><span class="n">04</span> Develop product merchandise samples</div>
+        <div class="step"><span class="n">05</span> Create wrapped guitar prototypes</div>
+        <div class="step"><span class="n">06</span> Build launch timeline</div>
+        <div class="step"><span class="n">07</span> Explore licensing or revenue-share model</div>
+      </div>
+    </div>
+    <div class="imgph" style="min-height:520px"><img src="images/image-ask.jpg" alt="JD Shultz artwork in Guitar Center" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-ask.jpg</span></div>
+  </div>
+</section>
+
+<!-- 18 CLOSING -->
+<section class="slide" data-title="Closing">
+  <div class="chrome"><span>From 1981 To Now</span><span class="num">19 / 19</span></div>
+  <div class="split" style="align-items:start;grid-template-columns:1fr 1fr;gap:40px">
+    <div>
+      <div class="eyebrow">Closing</div>
+      <h2 class="heading" style="font-size:clamp(28px,3.4vw,44px)">From 1981 To Now,<br>This Has Always<br>Been About Music</h2>
+      <div class="rule"></div>
+      <p class="copy" style="margin-top:22px">Guitar Center helped shape JD Shultz as a musician. Now JD has the opportunity to help shape the next evolution of Guitar Center's visual experience.</p>
+      <p class="copy lede" style="margin-top:16px">This is more than artwork on walls. It is a way to make every store feel more alive, more inspiring, and more connected to the creative spirit of the musicians who walk through the doors.</p>
+    </div>
+    <figure style="margin:0">
+      <div class="imgph filled" style="aspect-ratio:4/3;min-height:0"><img src="images/rockwalk.jpg" alt="JD Shultz at the RockWalk Museum, 2012" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">rockwalk.jpg</span></div>
+      <figcaption style="margin-top:10px;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--grey)">RockWalk Museum 2012</figcaption>
+    </figure>
+  </div>
+  <div class="contact-row">
+    <div><span class="k">Name</span>JD Shultz</div>
+    <div><span class="k">Roles</span>Artist · Musician · Producer</div>
+    <div><span class="k">Phone</span><a href="tel:3238395560" style="color:var(--white);text-decoration:none">323-839-5560</a></div>
+    <div><span class="k">Email</span>info@jdshultzart.com</div>
+    <div><span class="k">Website</span>jdshultzart.com</div>
+    <div><span class="k">Instagram</span>[Add Instagram]</div>
+  </div>
+</section>
+
+<!-- lightbox overlay -->
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <button id="lbClose" class="lb-close" aria-label="Close">&times;</button>
+  <img id="lbImg" src="" alt="">
+</div>
+
+<!-- mobile nav bar -->
+<div class="mobile-nav">
+  <button id="prevBtn">Prev</button>
+  <span class="counter" id="counter">1 / 19</span>
+  <button id="nextBtn">Next</button>
+</div>
+
+<script>
+const slides = Array.from(document.querySelectorAll('.slide'));
+const total = slides.length;
+
+/* desktop up/down arrow navigation */
+const arrowUp = document.getElementById('arrowUp');
+const arrowDown = document.getElementById('arrowDown');
+let currentSlide = 0;
+
+function updateArrows(){
+  arrowUp.disabled = currentSlide <= 0;
+  arrowDown.disabled = currentSlide >= total-1;
+}
+arrowUp.addEventListener('click',()=>{
+  if(currentSlide>0){ currentSlide--; slides[currentSlide].scrollIntoView({behavior:'smooth'}); }
+});
+arrowDown.addEventListener('click',()=>{
+  if(currentSlide<total-1){ currentSlide++; slides[currentSlide].scrollIntoView({behavior:'smooth'}); }
+});
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      currentSlide=slides.indexOf(e.target);
+      updateArrows();
+    }
+  });
+},{threshold:.5});
+slides.forEach(s=>io.observe(s));
+updateArrows();
+
+/* mobile one-at-a-time */
+let idx=0;
+const prevBtn=document.getElementById('prevBtn');
+const nextBtn=document.getElementById('nextBtn');
+const counter=document.getElementById('counter');
+function isMobile(){return window.matchMedia('(max-width:860px)').matches;}
+function render(){
+  slides.forEach((s,n)=>s.classList.toggle('active',n===idx));
+  counter.textContent=(idx+1)+' / '+total;
+  prevBtn.disabled=idx===0;
+  nextBtn.disabled=idx===total-1;
+}
+function go(i){
+  const next=Math.max(0,Math.min(total-1,i));
+  if(next===idx) return;           // no change -> never touch scroll
+  idx=next;
+  // reset scroll immediately (before paint) so the new slide starts at top
+  window.scrollTo(0,0);
+  document.documentElement.scrollTop=0;
+  document.body.scrollTop=0;
+  render();
+  // and again after layout settles, to catch late reflow
+  requestAnimationFrame(()=>{
+    window.scrollTo(0,0);
+    document.documentElement.scrollTop=0;
+    document.body.scrollTop=0;
+  });
+}
+prevBtn.addEventListener('click',()=>go(idx-1));
+nextBtn.addEventListener('click',()=>go(idx+1));
+
+let wasMobile=null;
+function syncMode(){
+  const m=isMobile();
+  if(m){
+    // only re-render when crossing INTO mobile, not on every address-bar resize
+    if(wasMobile!==true) render();
+  }else{
+    slides.forEach(s=>s.classList.remove('active'));
+  }
+  wasMobile=m;
+}
+window.addEventListener('resize',syncMode);
+syncMode();
+
+/* lightbox: click any loaded photo to view larger */
+const lb=document.getElementById('lightbox');
+const lbImg=document.getElementById('lbImg');
+const lbClose=document.getElementById('lbClose');
+function openLightbox(src,alt){
+  lbImg.src=src; lbImg.alt=alt||'';
+  lb.classList.add('open'); lb.setAttribute('aria-hidden','false');
+}
+function closeLightbox(){
+  lb.classList.remove('open'); lb.setAttribute('aria-hidden','true');
+  lbImg.src='';
+}
+document.addEventListener('click',e=>{
+  const img=e.target.closest('.imgph img, .trio-img img');
+  if(!img) return;
+  // skip if the image failed to load (placeholder showing)
+  if(!img.complete || img.naturalWidth===0 || img.style.display==='none') return;
+  openLightbox(img.currentSrc||img.src, img.alt);
+});
+lbClose.addEventListener('click',closeLightbox);
+lb.addEventListener('click',e=>{ if(e.target===lb) closeLightbox(); });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape' && lb.classList.contains('open')) closeLightbox(); });
+</script>
+</body>
+</html>
