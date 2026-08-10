@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Guitar Center Art Experience | JD Shultz</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap');
@@ -25,7 +25,6 @@ body{
   color:var(--white);
   font-family:'Inter',sans-serif;
   -webkit-font-smoothing:antialiased;
-  touch-action:manipulation;
   overflow-x:clip;
   max-width:100vw;
   width:100%;
@@ -176,12 +175,6 @@ p.copy{
 }
 .imgph.filled{background:#0a0a0a}
 .imgph.filled::before,.imgph.filled::after{display:none}
-.slide[data-title="Why JD Shultz"] .imgph::before,
-.slide[data-title="Why JD Shultz"] .imgph::after,
-.slide[data-title="Partnership Ask"] .imgph::before,
-.slide[data-title="Partnership Ask"] .imgph::after,
-.slide[data-title="Event Opportunities"] .imgph::before,
-.slide[data-title="Event Opportunities"] .imgph::after{display:none}
 .imgph.filled .tag{background:rgba(10,10,10,.82)}
 /* photos shown in full (object-fit:contain) on a clean dark backdrop */
 .imgph.filled-photo{background:#0d0d0d}
@@ -272,16 +265,15 @@ p.copy{
 .slide[data-title="Wrapped Instruments"] .heading{font-size:clamp(32px,4.3vw,56px)}
 .slide[data-title="Studio Decor"]{justify-content:flex-start}
 .slide[data-title="Studio Decor"] .heading{font-size:clamp(30px,4vw,52px)}
-.quad-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;width:100%}
-/* every tile is an identical frame; images fit inside (contain) so mixed portrait/landscape shots all sit evenly with no hard cropping */
-.quad-row .trio-img{position:relative;border-radius:3px;overflow:hidden;aspect-ratio:4/5;background:#0d0d0d;border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+.quad-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;width:100%}
+.quad-row .trio-img{position:relative;border-radius:2px;overflow:hidden;aspect-ratio:3/4}
 .quad-row .trio-img img{width:100%;height:100%;object-fit:cover;display:block}
-.quad-row .quad-cap{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 10px;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#f5f5f3;background:linear-gradient(transparent,rgba(0,0,0,.85));z-index:2;text-align:center}
+.quad-row .quad-cap{position:absolute;left:0;right:0;bottom:0;padding:20px 14px 10px;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#f5f5f3;background:linear-gradient(transparent,rgba(0,0,0,.75));z-index:2}
 .quad-row .trio-img.miss{background:repeating-linear-gradient(135deg,#141414 0 18px,#181818 18px 36px);border:1px solid var(--line)}
 .quad-row .trio-img.miss img{display:none}
 .quad-row .trio-img.miss .quad-cap{display:none}
 .quad-row .trio-img.miss::after{content:attr(data-name);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:1.5px;color:var(--grey)}
-@media(max-width:860px){.quad-row{grid-template-columns:1fr 1fr;gap:10px}}
+@media(max-width:860px){.quad-row{grid-template-columns:1fr 1fr;gap:8px}}
 /* page 9 product collection */
 .slide[data-title="The Collection"]{justify-content:flex-start;overflow-y:auto;min-height:100vh;height:auto}.slide[data-title="The Collection"] .heading{font-size:clamp(30px,4vw,52px)}
 .title-row.prod-head{align-items:start}
@@ -304,19 +296,6 @@ p.copy{
 @media(max-width:1200px){.slide[data-title="The Collection"] .prod-grid{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:860px){.slide[data-title="The Collection"] .prod-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:520px){.slide[data-title="The Collection"] .prod-grid{grid-template-columns:repeat(2,1fr)}}
-/* uniform white frame for every product tile so borders match regardless of source image proportions */
-.slide[data-title="The Collection"] .prod-cell .imgph{
-  background:#ffffff;border:1px solid #e6e6e6;border-radius:3px;
-  aspect-ratio:1/1;min-height:0;padding:10px;overflow:hidden;
-}
-.slide[data-title="The Collection"] .prod-cell .imgph::before,
-.slide[data-title="The Collection"] .prod-cell .imgph::after{display:none}
-.slide[data-title="The Collection"] .prod-cell .imgph img{
-  position:static !important;inset:auto !important;
-  width:100% !important;height:100% !important;
-  object-fit:contain !important;border-radius:0 !important;
-}
-.slide[data-title="The Collection"] .prod-cell .ph-fallback{color:#666}
 .slide[data-title="Already Proven"]{justify-content:flex-start}
 .slide[data-title="Already Proven"] .heading{font-size:clamp(28px,3.6vw,48px)}
 /* compact horizontal stat strip */
@@ -369,8 +348,8 @@ p.copy{
   .photo-trio .trio-img.miss{width:100%;max-width:420px;aspect-ratio:3/2}
   .cover-grid{grid-template-columns:1fr;gap:28px}
   .cover-photo{order:-1}
-  .cover-photo .imgph{aspect-ratio:4/5;max-height:420px}
-  .title-row{grid-template-columns:1fr!important;gap:14px!important;align-items:start}
+  .cover-photo .imgph{aspect-ratio:16/10;max-height:240px}
+  .title-row{grid-template-columns:1fr;gap:18px;align-items:start}
   .stat-strip{grid-template-columns:1fr;gap:0}
 }
 
@@ -402,7 +381,7 @@ p.copy{
 .mobile-nav{display:none}
 
 @media(max-width:860px){
-  .split,.split.text-first{grid-template-columns:1fr!important;gap:30px}
+  .split,.split.text-first{grid-template-columns:1fr;gap:30px}
   .cards{grid-template-columns:1fr;gap:14px}
   .feat-grid,.feat-grid.three{grid-template-columns:1fr}
   .grid-imgs,.grid-imgs.three{grid-template-columns:1fr}
@@ -427,28 +406,6 @@ p.copy{
   }
   .mobile-nav button:disabled{background:#2a2a2a;color:#666}
   .mobile-nav .counter{font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:2px;color:var(--grey)}
-  /* page 7: show full wrap image edge-to-edge, no side crop */
-  .slide[data-title="Vinyl Wall Wraps"] .imgph.filled,
-  .slide[data-title="The History"] .imgph.filled{min-height:0!important;height:auto!important;aspect-ratio:auto!important}
-  .slide[data-title="Vinyl Wall Wraps"] .imgph.filled img,
-  .slide[data-title="The History"] .imgph.filled img{position:static!important;inset:auto!important;width:100%!important;height:auto!important;object-fit:contain!important}
-  /* mobile: never let body copy get trapped in a narrow desktop column */
-  .slide .copy{max-width:100%!important}
-  .title-row .copy{margin-top:8px}
-  /* page 18: ask box must not clip its text */
-  .slide[data-title="Partnership Ask"] .split{grid-template-columns:1fr}
-  .slide[data-title="National Expansion"] .imgph.filled{margin-top:0!important}
-  .slide[data-title="Event Opportunities"] .opp-photo{margin-top:20px!important}
-  /* page 18: fit ask image full width, no side crop */
-  .slide[data-title="Partnership Ask"] .imgph,
-  .slide[data-title="Marketing & Social"] .imgph,
-  .slide[data-title="Why JD Shultz"] .imgph,
-  .slide[data-title="Closing"] .imgph{min-height:0!important;height:auto!important;aspect-ratio:auto!important}
-  .slide[data-title="Partnership Ask"] .imgph img,
-  .slide[data-title="Marketing & Social"] .imgph img,
-  .slide[data-title="Why JD Shultz"] .imgph img,
-  .slide[data-title="Closing"] .imgph img{position:static!important;inset:auto!important;width:100%!important;height:auto!important;object-fit:contain!important}
-  .ask-box,.slide[data-title="Partnership Ask"] .split > div:first-child{height:auto!important;max-height:none!important;overflow:visible!important}
 }
 
 /* desktop up/down nav arrows - fixed right, always in view */
@@ -478,11 +435,30 @@ p.copy{
   padding:4vw;
 }
 .lightbox.open{display:flex}
+.lb-inner{display:flex;flex-direction:column;align-items:center;max-width:94vw}
 .lightbox img{
-  max-width:94vw;max-height:90vh;
+  max-width:94vw;max-height:84vh;
   object-fit:contain;border-radius:3px;
   box-shadow:0 20px 60px rgba(0,0,0,.6);
 }
+.lb-cap{
+  margin-top:16px;text-align:center;
+  font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:1.5px;
+  text-transform:uppercase;color:#cfcfcd;max-width:80vw;
+}
+.lb-cap:empty{display:none}
+/* caption under single images on slides */
+.img-cap{font-family:'Oswald',sans-serif;font-size:10.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--grey);margin-top:7px;line-height:1.3}
+.multi-hint{font-family:'Oswald',sans-serif;font-size:10.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--grey);margin-top:12px;text-align:center;width:100%}
+/* top-align single-image slides so the caption below the image stays on screen */
+.slide[data-title="The Opportunity"],
+.slide[data-title="Why It Benefits GC"],
+.slide[data-title="Vinyl Wall Wraps"],
+.slide[data-title="The History"],
+.slide[data-title="Marketing & Social"],
+.slide[data-title="Event Opportunities"],
+.slide[data-title="Why JD Shultz"],
+.slide[data-title="Partnership Ask"]{justify-content:flex-start}
 .lb-close{
   position:absolute;top:20px;right:26px;
   background:none;border:none;color:#f5f5f3;
@@ -529,14 +505,14 @@ p.copy{
   <div class="story-wrap">
     <figure class="story-photo">
       <div class="imgph filled" style="aspect-ratio:4/3;min-height:0"><img src="images/image-story.jpg" alt="JD Shultz and Dave Weiderman at Guitar Center" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-story.jpg</span></div>
-      <figcaption>JD Shultz &amp; Dave Weiderman, Guitar Center Hollywood</figcaption>
+      <figcaption class="img-cap">Click on image to enlarge</figcaption>
     </figure>
     <p class="copy lede">Nothing that has happened with my artwork at Guitar Center would have happened without Dave Weiderman.</p>
     <p class="copy">My lifelong love affair with Guitar Center Hollywood began in 1981, when I walked into the store and purchased a custom nine-piece teal blue Gretsch drum set from Dave, who was then a 27-year-old drum salesman. That purchase became the beginning of a friendship that would span more than four decades. Dave became one of my closest friends and one of my dearest brothers.</p>
     <blockquote class="story-quote"><span class="q-intro">Then, in 2011, on the day that Jane's Addiction was inducted into the Rock Walk, Dave asked me a simple question that changed everything:</span><span class="q-line">"Why don't you put your artwork in Guitar Center?"</span></blockquote>
     <p class="copy story-full">I brought in a few paintings, and from that moment on, we just kept adding more art. Over the years, that grew into something none of us could have imagined.</p>
-    <p class="copy">Today, my artwork has become part of the Guitar Center Hollywood experience. And now, in 2026, I've had the privilege of decorating the entire Northridge Guitar Center as well as the Westlake Village Guitar Center, creating immersive art environments that celebrate music, creativity, cheerful colors and the culture that Guitar Center has inspired for generations.</p>
-    <p class="copy story-close">It all traces back to one person believing in me. The legendary Dave Weiderman.</p>
+    <p class="copy">Today, my artwork has become part of the Guitar Center Hollywood experience. And now, in 2026, I've had the privilege of decorating the entire Northridge Guitar Center as well as the Westlake Village Guitar Center, creating immersive art environments that celebrate music, creativity, and the culture that Guitar Center has inspired for generations.</p>
+    <p class="copy story-close">It all traces back to one person believing in me. Without Dave Weiderman, none of it would have happened.</p>
   </div>
 </section>
 
@@ -549,7 +525,7 @@ p.copy{
       <h2 class="heading">A Proven Concept<br>Live In Guitar Center Stores</h2>
       <div class="rule"></div>
     </div>
-    <p class="copy">JD Shultz is the only artist in Guitar Center history that has a multi-location visual presence inside the stores. This is not a concept pitch. It is already installed and on the walls.</p>
+    <p class="copy">JD Shultz is currently the only artist with a multi-location visual presence inside Guitar Center stores. This is not a concept pitch. It is already installed and on the walls.</p>
   </div>
   <div class="stat-strip">
     <div class="stat"><span class="stat-num">30+</span><span class="stat-lbl">Hollywood Flagship paintings</span></div>
@@ -561,6 +537,7 @@ p.copy{
     <div class="imgph filled" style="min-height:0"><img src="images/image-2.jpg" alt="JD Shultz artwork installed above the guitar wall at Northridge Guitar Center" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-2.jpg</span></div>
     <div class="imgph filled" style="min-height:0"><img src="images/image-3.jpg" alt="JD Shultz artwork at the Westlake Village Guitar Center" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-3.jpg</span></div>
   </div>
+  <div class="multi-hint">Click on images to enlarge</div>
 </section>
 
 <!-- 4 OPPORTUNITY -->
@@ -574,14 +551,7 @@ p.copy{
       <p class="copy">Guitar Center has always been more than a store. It is where musicians begin, grow, dream, and create.</p>
       <p class="copy" style="margin-top:16px">The JD Shultz Art Experience elevates locations into immersive cultural destinations through large-scale artwork, vinyl wall wraps, wrapped instruments, branded merchandise, and music-inspired visual storytelling.</p>
     </div>
-    <div>
-      <div class="imgph filled" style="min-height:0;aspect-ratio:16/10"><img src="images/image-4.jpg" alt="JD Shultz artwork transforming a Guitar Center space" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:contain;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-4.jpg</span></div>
-      <div class="opp-trio" style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px">
-        <div class="imgph filled" style="aspect-ratio:1/1;min-height:0"><img src="images/image-4b.jpg" alt="JD Shultz artwork detail" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-4b.jpg</span></div>
-        <div class="imgph filled" style="aspect-ratio:1/1;min-height:0"><img src="images/image-4c.jpg" alt="JD Shultz artwork detail" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-4c.jpg</span></div>
-        <div class="imgph filled" style="aspect-ratio:1/1;min-height:0"><img src="images/image-4d.jpg" alt="JD Shultz artwork detail" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-4d.jpg</span></div>
-      </div>
-    </div>
+    <div><div class="imgph filled" style="min-height:340px"><img src="images/image-4.jpg" alt="JD Shultz artwork transforming a Guitar Center space" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-4.jpg</span></div><div class="img-cap">Click on image to enlarge</div></div>
   </div>
 </section>
 
@@ -589,12 +559,12 @@ p.copy{
 <section class="slide" data-title="Store Transformation">
   <div class="chrome"><span>Visual Merchandising That Feels Alive</span><span class="num">05 / 19</span></div>
   <div class="eyebrow">The Store Transformation Program</div>
-  <div class="title-row" style="grid-template-columns:1fr 1fr;gap:24px">
+  <div class="title-row">
     <div>
       <h2 class="heading">Visual Merchandising<br>That Feels Alive</h2>
       <div class="rule"></div>
     </div>
-    <p class="copy">This is a complete environmental branding system designed to transform a traditional retail floor into an immersive destination where music, art, and culture converge. Custom wall wraps, museum-quality display cases featuring art-wrapped instruments, and signature feature walls elevate the customer experience, creating a store where every department tells a story, every corner inspires discovery, and every visit becomes memorable.</p>
+    <p class="copy">This is the full toolkit for turning a standard retail floor into a space that feels like a gallery and a music venue at once. Wraps, murals, painted instruments, and feature walls work together so every corner of the store has something worth looking at.</p>
   </div>
   <div class="feat-grid three" style="margin-top:18px">
     <div class="feat">Large-format vinyl wall wraps</div>
@@ -612,6 +582,7 @@ p.copy{
     <div class="trio-img"><img src="images/image-5b.jpg" alt="JD Shultz store transformation" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','image-5b.jpg')"></div>
     <div class="trio-img"><img src="images/image-5c.jpg" alt="JD Shultz store transformation" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','image-5c.jpg')"></div>
   </div>
+  <div class="multi-hint">Click on images to enlarge</div>
 </section>
 
 <!-- 6 BENEFITS -->
@@ -622,19 +593,19 @@ p.copy{
       <div class="eyebrow">Why This Benefits Guitar Center</div>
       <h2 class="heading">A Stronger<br>Customer<br>Experience</h2>
       <div class="rule"></div>
-      <p class="copy" style="margin-top:16px">This isn't art for art's sake. It gives people a reason to spend more time in the store, pull out their phones, and come back. In a world where most gear can be bought online, the in-store experience is what keeps customers, tourists and music lovers walking through the door.</p>
+      <p class="copy" style="margin-top:16px">This isn't art for art's sake. It gives people a reason to spend more time in the store, pull out their phones, and come back. In a world where most gear can be bought online, the in-store experience is what keeps customers walking through the door.</p>
       <div class="benefit-list" style="margin-top:18px">
         <div class="feat">More visually inspiring stores</div>
         <div class="feat">Customers stay longer</div>
         <div class="feat">Social-worthy moments</div>
         <div class="feat">Differentiation from traditional retail</div>
         <div class="feat">Stronger emotional connection with musicians</div>
-        <div class="feat">Turn art and music lovers into new customers</div>
+        <div class="feat">Celebrates creativity and self-expression</div>
         <div class="feat">Places customers want to visit and share</div>
         <div class="feat">A reason to come in, not just buy online</div>
       </div>
     </div>
-    <div class="imgph" style="min-height:380px"><img src="images/image-6.jpg" alt="Customers in-store with JD Shultz artwork" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-6.jpg</span></div>
+    <div><div class="imgph" style="min-height:340px"><img src="images/image-6.jpg" alt="Customers in-store with JD Shultz artwork" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-6.jpg</span></div><div class="img-cap">Click on image to enlarge</div></div>
   </div>
 </section>
 
@@ -658,7 +629,7 @@ p.copy{
         <div class="feat">Artist feature walls</div>
       </div>
     </div>
-    <div class="imgph filled" style="min-height:480px"><img src="images/image-7.jpg" alt="Large-format vinyl wall wrap mockup" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-7.jpg</span></div>
+    <div><div class="imgph filled" style="min-height:360px"><img src="images/image-7.jpg" alt="Large-format vinyl wall wrap mockup" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-7.jpg</span></div><div class="img-cap">Click on image to enlarge</div></div></div>
   </div>
 </section>
 
@@ -688,6 +659,7 @@ p.copy{
     <div class="trio-img"><img src="images/image-8b.jpg" alt="Art-wrapped instrument" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','image-8b.jpg')"></div>
     <div class="trio-img"><img src="images/image-8c.jpg" alt="Art-wrapped instrument" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','image-8c.jpg')"></div>
   </div>
+  <div class="multi-hint">Click on images to enlarge</div>
 </section>
 
 <!-- 9 PRODUCT GALLERY -->
@@ -723,6 +695,7 @@ p.copy{
     <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/prod-11.jpg" alt="JD Shultz product" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">prod-11.jpg</span></div></div>
     <div class="prod-cell"><div class="imgph" style="aspect-ratio:1500/1400"><img src="images/prod-12.jpg" alt="JD Shultz product" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">prod-12.jpg</span></div></div>
   </div>
+  <div class="multi-hint">Click on images to enlarge</div>
 </section>
 
 <!-- 10 HISTORY -->
@@ -734,10 +707,10 @@ p.copy{
       <h2 class="heading">A Relationship Built Over Years</h2>
       <div class="rule"></div>
       <p class="copy" style="margin-bottom:16px">It started in 2011. JD hung his first pieces inside Guitar Center, and the response was immediate. Customers stopped, looked, and asked about them. The art belonged there because it came from the same place the music does.</p>
-      <p class="copy" style="margin-bottom:16px">From there, the idea took on a life of its own. One store became three. A handful of paintings became dozens. What began in the RockWalk Museum evolved into immersive retail spaces with art-wrapped guitars, feature walls, and custom installations, creating memorable destinations and a vision that can scale across every Guitar Center.</p>
-      <p class="copy lede">Fifteen years later, JD is the only artist with original work installed across multiple Guitar Center locations. This partnership is the next step in a story that's already been building for years.</p>
+      <p class="copy" style="margin-bottom:16px">From there it grew on its own. One store became three. A handful of paintings became dozens. What began as a few canvases on a wall turned into wrapped guitars, featured walls, and a presence that customers now expect to see when they walk in.</p>
+      <p class="copy lede">More than a decade later, JD is the only artist with original work installed across multiple Guitar Center locations. This partnership is the next step in a story that's already been building for years.</p>
     </div>
-    <div class="imgph filled" style="min-height:420px"><img src="images/image-17.jpg" alt="JD Shultz artwork in Guitar Center over the years" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-17.jpg</span></div>
+    <div><div class="imgph filled" style="min-height:330px"><img src="images/image-17.jpg" alt="JD Shultz artwork in Guitar Center over the years" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-17.jpg</span></div><div class="img-cap">Click on image to enlarge</div></div>
   </div>
 </section>
 
@@ -745,7 +718,7 @@ p.copy{
 <section class="slide" data-title="Marketing & Social">
   <div class="chrome"><span>Built For Shareability</span><span class="num">11 / 19</span></div>
   <div class="split">
-    <div class="imgph" style="min-height:400px"><img src="images/image-18.jpg" alt="Instagram and TikTok mockups with store art" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-18.jpg</span></div>
+    <div><div class="imgph" style="min-height:360px"><img src="images/image-18.jpg" alt="Instagram and TikTok mockups with store art" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-18.jpg</span></div><div class="img-cap">Click on image to enlarge</div></div>
     <div>
       <div class="eyebrow">Marketing & Social Media Potential</div>
       <h2 class="heading">Built For<br>Shareability</h2>
@@ -771,8 +744,8 @@ p.copy{
   <div class="eyebrow">Event Opportunities</div>
   <h2 class="heading">Bringing The Art To Life</h2>
   <div class="rule"></div>
-  <p class="copy" style="max-width:calc((100% - 50px) / 2)">The art doesn't have to live only on the walls. It can become the centerpiece for unforgettable experiences, from wrapped-guitar unveilings and exclusive artist events to special product launches, transforming the store into a destination that draws crowds, creates buzz, and gives customers something worth talking about long after they leave.</p>
-  <div class="split" style="margin-top:24px;align-items:start;grid-template-columns:1fr 1fr">
+  <p class="copy" style="max-width:760px">The art doesn't have to stay static on the wall. It can anchor live moments that pull people into the store and give them a reason to talk about it after. From live painting to wrapped-guitar reveals, every event turns the store into a destination for a night.</p>
+  <div class="split" style="margin-top:24px;align-items:center;grid-template-columns:1fr 1fr">
     <div class="feat-grid">
       <div class="feat">Artist meet-and-greets</div>
       <div class="feat">Live painting events</div>
@@ -784,23 +757,24 @@ p.copy{
       <div class="feat">Charity auctions</div>
       <div class="feat">Limited-edition signings</div>
     </div>
-    <div class="opp-photo" style="margin-top:-170px;display:flex;justify-content:center;align-items:flex-start"><img src="images/image-19.jpg" alt="In-store event with JD Shultz artwork" style="max-width:100%;max-height:620px;width:auto;height:auto;display:block;border-radius:2px"></div>
+    <div><div class="imgph" style="min-height:370px"><img src="images/image-19.jpg" alt="In-store event with JD Shultz artwork" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-19.jpg</span></div><div class="img-cap">Click on image to enlarge</div></div>
   </div>
 </section>
 
 <!-- 13 PANELS & STUDIO DECOR -->
 <section class="slide" data-title="Studio Decor">
-  <div class="chrome"><span>Blending Art With Studio Equipment</span><span class="num">13 / 19</span></div>
+  <div class="chrome"><span>Art For Studios And Spaces</span><span class="num">13 / 19</span></div>
   <div class="eyebrow">Panels & Music Studio Decor</div>
-  <h2 class="heading">Blending Art With Studio Equipment</h2>
+  <h2 class="heading">Art For Studios And Spaces</h2>
   <div class="rule"></div>
   <p class="copy" style="max-width:1080px;margin-top:16px">Today, my artwork can be seamlessly integrated into functional products, including custom-wrapped speaker cabinets and acoustical recording studio sound panels that provide professional sound absorption while transforming studios into immersive works of art. Instead of hiding soundproofing materials behind plain fabric, every surface becomes an opportunity for creativity and inspiration. It's where music, technology, design, and fine art come together, proving that the future isn't coming; it's already here.</p>
   <div class="quad-row" style="margin-top:26px">
-    <div class="trio-img"><img src="images/studio-1.jpg" alt="Speaker cabinets and console with JD Shultz artwork" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','studio-1.jpg')"><span class="quad-cap">Speaker cabinets and console</span></div>
-    <div class="trio-img"><img src="images/studio-2.jpg" alt="Studio foam panels wrapped in JD Shultz art" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','studio-2.jpg')"><span class="quad-cap">Studio foam panels</span></div>
-    <div class="trio-img"><img src="images/studio-3.jpg" alt="Acoustic panels featuring JD Shultz canvases" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','studio-3.jpg')"><span class="quad-cap">Acoustic panels</span></div>
-    <div class="trio-img"><img src="images/studio-4.jpg" alt="Studio speakers wrapped in JD Shultz art" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','studio-4.jpg')"><span class="quad-cap">Studio speakers</span></div>
+    <div class="trio-img"><img src="images/studio-1.jpg" alt="Custom-wrapped speaker cabinet" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','studio-1.jpg')"><span class="quad-cap">Wrapped speaker cabinets</span></div>
+    <div class="trio-img"><img src="images/studio-2.jpg" alt="Acoustic sound-absorption panel" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','studio-2.jpg')"><span class="quad-cap">Acoustic sound panels</span></div>
+    <div class="trio-img"><img src="images/studio-3.jpg" alt="Studio feature wall" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','studio-3.jpg')"><span class="quad-cap">Studio feature walls</span></div>
+    <div class="trio-img"><img src="images/studio-4.jpg" alt="Wrapped gear" onerror="this.parentElement.classList.add('miss');this.parentElement.setAttribute('data-name','studio-4.jpg')"><span class="quad-cap">Wrapped gear & cases</span></div>
   </div>
+  <div class="multi-hint">Click on images to enlarge</div>
 </section>
 
 <!-- 14 PILOT -->
@@ -829,7 +803,7 @@ p.copy{
         <div class="feat">Engagement tracking</div>
       </div>
     </div>
-    <div class="imgph filled story-photo-tall" style="aspect-ratio:1446/2048;min-height:0"><img src="images/image-20.jpg" alt="Before and after: Guitar Center entrance arch transformed with JD Shultz band mural" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-20.jpg</span></div>
+    <div><div class="imgph filled story-photo-tall" style="aspect-ratio:1446/2048;min-height:0;max-height:600px;margin:0 auto"><img src="images/image-20.jpg" alt="Before and after: Guitar Center entrance arch transformed with JD Shultz band mural" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-20.jpg</span></div><div class="img-cap">Click on image to enlarge</div></div>
   </div>
 </section>
 
@@ -839,9 +813,9 @@ p.copy{
   <div class="eyebrow">National Expansion Vision</div>
   <h2 class="heading">A National<br>Creative Partnership</h2>
   <div class="rule"></div>
-  <p class="copy" style="margin-bottom:18px;max-width:calc((100% - 50px) / 2)">Once the pilot is validated, the program expands into a national rollout across select Guitar Center locations.</p>
-  <div class="split" style="align-items:start;margin-top:6px">
-    <div class="feat-grid" style="margin-top:18px">
+  <p class="copy" style="margin-bottom:24px">Once the pilot is validated, the program expands into a national rollout across select Guitar Center locations.</p>
+  <div class="split" style="align-items:center">
+    <div class="feat-grid">
       <div class="feat">Flagship store transformations</div>
       <div class="feat">Regional art walls</div>
       <div class="feat">Seasonal campaigns</div>
@@ -849,7 +823,7 @@ p.copy{
       <div class="feat">Wrapped instrument program</div>
       <div class="feat">Artist-driven experience zones</div>
     </div>
-    <div class="imgph filled" style="aspect-ratio:1/1;min-height:0;max-width:520px;max-height:520px;margin:-190px auto 0"><img src="images/image-21.jpg" alt="Before and after: Guitar Center Hollywood exterior wall with JD Shultz rock legends mural" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-21.jpg</span></div>
+    <div><div class="imgph filled" style="aspect-ratio:1/1;min-height:0;max-width:450px;max-height:450px;margin:0 auto"><img src="images/image-21.jpg" alt="Before and after: Guitar Center Hollywood exterior wall with JD Shultz rock legends mural" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-21.jpg</span></div><div class="img-cap">Click on image to enlarge</div></div>
   </div>
 </section>
 
@@ -857,7 +831,7 @@ p.copy{
 <section class="slide" data-title="Why JD Shultz">
   <div class="chrome"><span>The Right Artist. The Right Story.</span><span class="num">16 / 19</span></div>
   <div class="split">
-    <div class="imgph" style="min-height:560px"><img src="images/image-22.jpg" alt="JD Shultz in-store with his artwork and guitars" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-22.jpg</span></div>
+    <div><div class="imgph" style="min-height:390px"><img src="images/image-22.jpg" alt="JD Shultz in-store with his artwork and guitars" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-22.jpg</span></div><div class="img-cap">Click on image to enlarge</div></div>
     <div>
       <div class="eyebrow">Why JD Shultz</div>
       <h2 class="heading">The Right Artist.<br>The Right Story.<br>The Right Partner.</h2>
@@ -884,8 +858,8 @@ p.copy{
       <div class="eyebrow">The Bigger Vision</div>
       <h1 class="display" style="font-size:clamp(56px,9vw,120px);margin-bottom:6px">Vision<br>2030</h1>
       <div class="rule"></div>
-      <p class="copy lede" style="max-width:500px">Create the first artist-driven visual merchandising and merchandise partnership in Guitar Center history.</p>
-      <p class="copy" style="margin-top:14px;max-width:500px">A program that transforms stores nationwide through immersive artwork, vinyl wall wraps, wrapped instruments, and exclusive merchandise that celebrates music, creativity, and self-expression.</p>
+      <p class="copy lede" style="max-width:440px">Create the first artist-driven visual merchandising and merchandise partnership in Guitar Center history.</p>
+      <p class="copy" style="margin-top:14px;max-width:440px">A program that transforms stores nationwide through immersive artwork, vinyl wall wraps, wrapped instruments, and exclusive merchandise that celebrates music, creativity, and self-expression.</p>
     </div>
     <div class="vision-grid">
       <div class="imgph" style="aspect-ratio:4/3;min-height:0"><img src="images/vision-1.jpg" alt="Vision concept" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">vision-1.jpg</span></div>
@@ -895,6 +869,7 @@ p.copy{
       <div class="imgph" style="aspect-ratio:4/3;min-height:0"><img src="images/vision-5.jpg" alt="Vision concept" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">vision-5.jpg</span></div>
       <div class="imgph" style="aspect-ratio:4/3;min-height:0"><img src="images/vision-6.jpg" alt="Vision concept" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">vision-6.jpg</span></div>
     </div>
+  <div class="multi-hint">Click on images to enlarge</div>
   </div>
 </section>
 
@@ -904,9 +879,9 @@ p.copy{
   <div class="eyebrow">Partnership Ask</div>
   <h2 class="heading">Proposed Next Step</h2>
   <div class="rule"></div>
-  <div class="split" style="margin-top:10px;align-items:start;grid-template-columns:1.1fr 0.9fr">
+  <div class="split" style="margin-top:22px;align-items:start;grid-template-columns:1.1fr 0.9fr">
     <div>
-      <div class="ask-box" style="margin-top:0">
+      <div class="ask-box">
         <p class="copy lede" style="margin:0">JD Shultz is seeking a conversation with Guitar Center corporate leadership to explore an official creative partnership: a pilot program bringing together store design, customer experience, wrapped instruments, exclusive merchandise, and national brand storytelling.</p>
       </div>
       <p class="section-tag" style="margin-top:26px">Suggested next steps</p>
@@ -920,40 +895,35 @@ p.copy{
         <div class="step"><span class="n">07</span> Explore licensing or revenue-share model</div>
       </div>
     </div>
-    <div class="imgph" style="min-height:520px"><img src="images/image-ask.jpg" alt="JD Shultz artwork in Guitar Center" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-ask.jpg</span></div>
+    <div><div class="imgph" style="min-height:400px"><img src="images/image-ask.jpg" alt="JD Shultz artwork in Guitar Center" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">image-ask.jpg</span></div><div class="img-cap">Click on image to enlarge</div></div>
   </div>
 </section>
 
 <!-- 18 CLOSING -->
 <section class="slide" data-title="Closing">
   <div class="chrome"><span>From 1981 To Now</span><span class="num">19 / 19</span></div>
-  <div class="split" style="align-items:start;grid-template-columns:1fr 1fr;gap:40px">
-    <div>
-      <div class="eyebrow">Closing</div>
-      <h2 class="heading" style="font-size:clamp(28px,3.4vw,44px)">The Future Is Here</h2>
-      <div class="rule"></div>
-      <p class="copy" style="margin-top:22px">Guitar Center helped shape JD Shultz as a musician. Now JD has the opportunity to help shape the next evolution of Guitar Center's visual experience.</p>
-      <p class="copy lede" style="margin-top:16px">This is more than artwork on walls. It is a way to make every store feel more alive, more inspiring, and more connected to the creative spirit of the musicians and people from all walks of life that come through the doors.</p>
-    </div>
-    <figure style="margin:0">
-      <div class="imgph filled" style="aspect-ratio:4/3;min-height:0"><img src="images/rockwalk.jpg" alt="JD Shultz at the RockWalk Museum, 2012" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;border-radius:2px"><span class="ph-fallback">rockwalk.jpg</span></div>
-      <figcaption style="margin-top:10px;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--grey)">RockWalk Museum 2012</figcaption>
-    </figure>
-  </div>
+  <div class="eyebrow">Closing</div>
+  <h2 class="heading">From 1981 To Now,<br>This Has Always<br>Been About Music</h2>
+  <div class="rule"></div>
+  <p class="copy" style="max-width:780px">Guitar Center helped shape JD Shultz as a musician. Now JD has the opportunity to help shape the next evolution of Guitar Center's visual experience.</p>
+  <p class="copy lede" style="margin-top:16px;max-width:780px">This is more than artwork on walls. It is a way to make every store feel more alive, more inspiring, and more connected to the creative spirit of the musicians who walk through the doors.</p>
   <div class="contact-row">
     <div><span class="k">Name</span>JD Shultz</div>
     <div><span class="k">Roles</span>Artist · Musician · Producer</div>
-    <div><span class="k">Phone</span><a href="tel:3238395560" style="color:var(--white);text-decoration:none">323-839-5560</a></div>
+    <div><span class="k">Phone</span>323-839-5560</div>
     <div><span class="k">Email</span>info@jdshultzart.com</div>
-    <div><span class="k">Website</span>thejdshultz.com</div>
-    <div><span class="k">Instagram</span>@jd_shultz</div>
+    <div><span class="k">Website</span>jdshultzart.com</div>
+    <div><span class="k">Instagram</span>[Add Instagram]</div>
   </div>
 </section>
 
 <!-- lightbox overlay -->
 <div id="lightbox" class="lightbox" aria-hidden="true">
   <button id="lbClose" class="lb-close" aria-label="Close">&times;</button>
-  <img id="lbImg" src="" alt="">
+  <div class="lb-inner">
+    <img id="lbImg" src="" alt="">
+    <div id="lbCap" class="lb-cap"></div>
+  </div>
 </div>
 
 <!-- mobile nav bar -->
@@ -1041,14 +1011,16 @@ syncMode();
 /* lightbox: click any loaded photo to view larger */
 const lb=document.getElementById('lightbox');
 const lbImg=document.getElementById('lbImg');
+const lbCap=document.getElementById('lbCap');
 const lbClose=document.getElementById('lbClose');
 function openLightbox(src,alt){
   lbImg.src=src; lbImg.alt=alt||'';
+  lbCap.textContent=alt||'';
   lb.classList.add('open'); lb.setAttribute('aria-hidden','false');
 }
 function closeLightbox(){
   lb.classList.remove('open'); lb.setAttribute('aria-hidden','true');
-  lbImg.src='';
+  lbImg.src=''; lbCap.textContent='';
 }
 document.addEventListener('click',e=>{
   const img=e.target.closest('.imgph img, .trio-img img');
