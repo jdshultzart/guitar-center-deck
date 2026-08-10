@@ -379,6 +379,26 @@ p.copy{
 
 /* ---------- MOBILE NAV (one slide at a time on small screens) ---------- */
 .mobile-nav{display:none}
+/* mobile scroll-for-more hint */
+.scroll-hint{display:none}
+@media(max-width:860px){
+  .scroll-hint{
+    display:flex;flex-direction:column;align-items:center;gap:2px;
+    position:fixed;left:50%;transform:translateX(-50%);
+    bottom:78px;z-index:45;pointer-events:none;
+    font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:2px;
+    text-transform:uppercase;color:#f5f5f3;
+    background:rgba(12,12,12,.72);padding:8px 16px;border-radius:20px;
+    border:1px solid var(--line);backdrop-filter:blur(6px);
+    transition:opacity .3s;
+  }
+  .scroll-hint.hide{opacity:0}
+  .scroll-arrow{color:var(--amp);font-size:12px;animation:scrollBounce 1.4s infinite}
+}
+@keyframes scrollBounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(4px)}
+}
 
 @media(max-width:860px){
   .split,.split.text-first{grid-template-columns:1fr;gap:30px}
@@ -926,6 +946,12 @@ p.copy{
   </div>
 </div>
 
+<!-- mobile scroll hint -->
+<div class="scroll-hint" id="scrollHint">
+  <span>Scroll for more</span>
+  <span class="scroll-arrow">&#9660;</span>
+</div>
+
 <!-- mobile nav bar -->
 <div class="mobile-nav">
   <button id="prevBtn">Prev</button>
@@ -1007,6 +1033,25 @@ function syncMode(){
 }
 window.addEventListener('resize',syncMode);
 syncMode();
+
+/* mobile scroll-for-more hint */
+const scrollHint=document.getElementById('scrollHint');
+function updateScrollHint(){
+  if(!isMobile()){ scrollHint.classList.add('hide'); return; }
+  const doc=document.documentElement;
+  const scrollable=doc.scrollHeight - window.innerHeight;
+  const scrolled=window.scrollY||doc.scrollTop||0;
+  if(scrollable>60 && scrolled<40){
+    scrollHint.classList.remove('hide');
+  }else{
+    scrollHint.classList.add('hide');
+  }
+}
+window.addEventListener('scroll',updateScrollHint,{passive:true});
+window.addEventListener('resize',updateScrollHint);
+prevBtn.addEventListener('click',()=>setTimeout(updateScrollHint,150));
+nextBtn.addEventListener('click',()=>setTimeout(updateScrollHint,150));
+setTimeout(updateScrollHint,300);
 
 /* lightbox: click any loaded photo to view larger */
 const lb=document.getElementById('lightbox');
